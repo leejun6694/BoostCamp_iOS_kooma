@@ -20,6 +20,22 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         print("ConversionViewController loaded its view.")
     }
     
+    // 은메달 과제 : 다크 모드
+    override func viewWillAppear(_ animated: Bool) {
+        let calendar = NSCalendar.current
+        let currentHour = calendar.component(.hour, from: Date())
+        
+        switch currentHour {
+        case 6...12 :
+            self.view.backgroundColor = UIColor(red: 255/255, green: 254/255, blue: 136/255, alpha: 1.0)
+        case 13...20 :
+            self.view.backgroundColor = UIColor(red: 155/255, green: 254/255, blue: 255/255, alpha: 1.0)
+        default :
+            self.view.backgroundColor = UIColor(red: 100/255, green: 100/255, blue: 123/255, alpha: 1.0)
+        }
+        
+    }
+    
     // property value가 바뀔 때마다 호출되야 하므로 property observer를 사용함
     // value가 바껴도 celsiusLabel의 text가 바뀌지 않는다
     var fahrenheitValue: Double? {
