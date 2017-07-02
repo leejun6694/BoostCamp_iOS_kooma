@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		726FDD9F1F09395600A14112 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726FDD9E1F09395600A14112 /* Assets.xcassets */; };
 		72809EA31F09330F00503011 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72809EA21F09330F00503011 /* LoginViewController.swift */; };
 		72F2C3041F093289004589C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F2C3031F093289004589C1 /* AppDelegate.swift */; };
 		72F2C3091F093289004589C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F2C3071F093289004589C1 /* Main.storyboard */; };
-		72F2C30B1F093289004589C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F2C30A1F093289004589C1 /* Assets.xcassets */; };
 		72F2C30E1F093289004589C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F2C30C1F093289004589C1 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		726FDD9E1F09395600A14112 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72809EA21F09330F00503011 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		72F2C3001F093289004589C1 /* LoginView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F2C3031F093289004589C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F2C3081F093289004589C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		72F2C30A1F093289004589C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72F2C30D1F093289004589C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72F2C30F1F093289004589C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,8 +57,8 @@
 				72F2C3031F093289004589C1 /* AppDelegate.swift */,
 				72F2C3071F093289004589C1 /* Main.storyboard */,
 				72809EA21F09330F00503011 /* LoginViewController.swift */,
-				72F2C30A1F093289004589C1 /* Assets.xcassets */,
 				72F2C30C1F093289004589C1 /* LaunchScreen.storyboard */,
+				726FDD9E1F09395600A14112 /* Assets.xcassets */,
 				72F2C30F1F093289004589C1 /* Info.plist */,
 			);
 			path = LoginView;
@@ -125,7 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F2C30E1F093289004589C1 /* LaunchScreen.storyboard in Resources */,
-				72F2C30B1F093289004589C1 /* Assets.xcassets in Resources */,
+				726FDD9F1F09395600A14112 /* Assets.xcassets in Resources */,
 				72F2C3091F093289004589C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
