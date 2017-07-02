@@ -13,32 +13,34 @@ class LoginViewController: UIViewController {
     @IBOutlet var idField: UITextField!
     @IBOutlet var pwField: UITextField!
     
-    var input_id:String = ""
-    var input_pw:String = ""
+    var inputId:String = ""
+    var inputPw:String = ""
     
+    // Print TextFields text
     @IBAction func logIn(sender: AnyObject) {        
-        if let text = idField.text {
-            input_id = text
+        if let idFieldText = idField.text {
+            inputId = idFieldText
         }
         else {
-            input_id = ""
+            inputId = ""
         }
         
-        if let text = pwField.text {
-            input_pw = text
+        if let pwFieldText = pwField.text {
+            inputPw = pwFieldText
         }
         else {
-            input_pw = ""
+            inputPw = ""
         }
         
         print("touch up inside - sign in")
-        print("ID : \(input_id), PW : \(input_pw)")
+        print("ID : \(inputId), PW : \(inputPw)")
     }
     
     @IBAction func signUp(sender: AnyObject) {
         print("touch up inside - sign up")
     }
     
+    // Dissmiss 'keyboard view' when touch up anywhere (no textfield)
     @IBAction func dissmissKeyboard(sender: AnyObject) {
         idField.resignFirstResponder()
         pwField.resignFirstResponder()
