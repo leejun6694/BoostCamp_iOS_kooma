@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i7I-7t-ogl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConversionViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,40 +45,93 @@
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="212" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb9-pW-xK6">
-                                <rect key="frame" x="132" y="28" width="111" height="84"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fSP-5d-gPN">
+                                <rect key="frame" x="62.5" y="28" width="250" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="LR9-dD-cHB"/>
+                                </constraints>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="fahrenheitFieldEditingChangedWithTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="ySZ-o6-d3k"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Zek-0L-LmE"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="4y2-xB-Pco" firstAttribute="top" secondItem="rb9-pW-xK6" secondAttribute="bottom" constant="8" id="1TI-5F-phx"/>
-                            <constraint firstItem="rb9-pW-xK6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9SZ-ep-eDg"/>
-                            <constraint firstItem="pUG-lg-lct" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="ApN-Z0-ux8"/>
-                            <constraint firstItem="4y2-xB-Pco" firstAttribute="top" secondItem="rb9-pW-xK6" secondAttribute="bottom" constant="8" id="Cgd-fN-OUz"/>
+                            <constraint firstItem="4y2-xB-Pco" firstAttribute="top" secondItem="fSP-5d-gPN" secondAttribute="bottom" constant="8" id="9C9-s1-d8J"/>
+                            <constraint firstItem="fSP-5d-gPN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9lR-BX-avs"/>
                             <constraint firstItem="1xh-aU-S43" firstAttribute="top" secondItem="4y2-xB-Pco" secondAttribute="bottom" constant="8" id="DsZ-ta-cB1"/>
-                            <constraint firstItem="1xh-aU-S43" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="Hyd-wN-VJS"/>
+                            <constraint firstItem="4y2-xB-Pco" firstAttribute="centerX" secondItem="fSP-5d-gPN" secondAttribute="centerX" id="EAe-hY-2kZ"/>
+                            <constraint firstItem="1xh-aU-S43" firstAttribute="centerX" secondItem="fSP-5d-gPN" secondAttribute="centerX" id="Gmh-V2-2N7"/>
                             <constraint firstItem="pUG-lg-lct" firstAttribute="top" secondItem="1xh-aU-S43" secondAttribute="bottom" constant="8" id="JJY-Ds-vwN"/>
+                            <constraint firstItem="4y2-xB-Pco" firstAttribute="centerX" secondItem="fSP-5d-gPN" secondAttribute="centerX" id="MsS-Xt-kWX"/>
                             <constraint firstItem="pUG-lg-lct" firstAttribute="top" secondItem="1xh-aU-S43" secondAttribute="bottom" constant="8" id="PyB-o6-JPN"/>
-                            <constraint firstItem="4y2-xB-Pco" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="Swm-ve-Gek"/>
-                            <constraint firstItem="rb9-pW-xK6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="UC1-HP-4wH"/>
-                            <constraint firstItem="YZf-Jy-iJo" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="XmA-xF-V4n"/>
-                            <constraint firstItem="1xh-aU-S43" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="ZaB-Ir-s5N"/>
+                            <constraint firstItem="fSP-5d-gPN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="YwJ-Pf-evB"/>
                             <constraint firstItem="1xh-aU-S43" firstAttribute="top" secondItem="4y2-xB-Pco" secondAttribute="bottom" constant="8" id="aIN-l7-672"/>
-                            <constraint firstItem="YZf-Jy-iJo" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="l0C-ON-FHg"/>
+                            <constraint firstItem="pUG-lg-lct" firstAttribute="centerX" secondItem="fSP-5d-gPN" secondAttribute="centerX" id="k7K-xK-CNx"/>
                             <constraint firstItem="YZf-Jy-iJo" firstAttribute="top" secondItem="pUG-lg-lct" secondAttribute="bottom" constant="8" id="olf-kv-rhu"/>
-                            <constraint firstItem="pUG-lg-lct" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="tVi-J8-UeJ"/>
-                            <constraint firstItem="4y2-xB-Pco" firstAttribute="centerX" secondItem="rb9-pW-xK6" secondAttribute="centerX" id="wPB-Yo-80n"/>
+                            <constraint firstItem="YZf-Jy-iJo" firstAttribute="centerX" secondItem="fSP-5d-gPN" secondAttribute="centerX" id="r96-ja-RRT"/>
                             <constraint firstItem="YZf-Jy-iJo" firstAttribute="top" secondItem="pUG-lg-lct" secondAttribute="bottom" constant="8" id="xeB-MK-5uh"/>
-                            <constraint firstItem="rb9-pW-xK6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="zvs-kT-0mi"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="UmX-gS-23V" appends="YES" id="5gR-58-cpp"/>
+                        </connections>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Convert" image="ConvertIcon" id="Efl-1W-4pa"/>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="pUG-lg-lct" id="HG8-1h-AMQ"/>
+                        <outlet property="textField" destination="fSP-5d-gPN" id="T6s-re-n8E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UmX-gS-23V">
+                    <connections>
+                        <action selector="dismissKeyboardWithSender:" destination="BYZ-38-t0r" id="Qma-re-Qda"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="88.799999999999997" y="141.67916041979012"/>
+            <point key="canvasLocation" x="1820" y="513"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="WY9-WT-j9R">
+            <objects>
+                <viewController id="Cs2-Yh-prG" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="r0D-ol-SFO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </mapView>
+                    <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="Bmj-7H-lGg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VAH-TK-B2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-210"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fEz-nE-hBD">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="i7I-7t-ogl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="fCU-pG-0EW">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DoG-E8-pdS"/>
+                        <segue destination="Cs2-Yh-prG" kind="relationship" relationship="viewControllers" id="SuV-mD-Fxt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B2B-6K-Aqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880.79999999999995" y="141.67916041979012"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ConvertIcon" width="48" height="32"/>
+        <image name="MapIcon" width="48" height="32"/>
+    </resources>
 </document>
