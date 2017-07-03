@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7220506B1F08ADE900B3E6D6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7220506A1F08ADE900B3E6D6 /* MapViewController.swift */; };
+		7226E0C21F0AB10E00113142 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7226E0C11F0AB10E00113142 /* WebViewController.swift */; };
 		722C16361F06748E0059A536 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722C16351F06748E0059A536 /* AppDelegate.swift */; };
 		722C163B1F06748E0059A536 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 722C16391F06748E0059A536 /* Main.storyboard */; };
 		722C163D1F06748E0059A536 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 722C163C1F06748E0059A536 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		7220506A1F08ADE900B3E6D6 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		7226E0C11F0AB10E00113142 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		722C16321F06748E0059A536 /* WorldTrotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldTrotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		722C16351F06748E0059A536 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		722C163A1F06748E0059A536 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				723C81251F07E7AD009D671C /* ConversionViewController.swift */,
 				722C16351F06748E0059A536 /* AppDelegate.swift */,
 				722C16391F06748E0059A536 /* Main.storyboard */,
+				7226E0C11F0AB10E00113142 /* WebViewController.swift */,
 				7220506A1F08ADE900B3E6D6 /* MapViewController.swift */,
 				722C163C1F06748E0059A536 /* Assets.xcassets */,
 				722C163E1F06748E0059A536 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				723C81261F07E7AD009D671C /* ConversionViewController.swift in Sources */,
 				7220506B1F08ADE900B3E6D6 /* MapViewController.swift in Sources */,
 				722C16361F06748E0059A536 /* AppDelegate.swift in Sources */,
+				7226E0C21F0AB10E00113142 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

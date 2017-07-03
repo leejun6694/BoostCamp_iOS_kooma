@@ -94,7 +94,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1820" y="513"/>
+            <point key="canvasLocation" x="1820" y="212"/>
+        </scene>
+        <!--Web-->
+        <scene sceneID="hW7-bq-56n">
+            <objects>
+                <viewController title="Web" id="04f-jk-oaU" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="V18-WS-IFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </webView>
+                    <tabBarItem key="tabBarItem" title="Web" id="dMR-tf-HX9"/>
+                    <connections>
+                        <outlet property="webView" destination="V18-WS-IFQ" id="KOm-Ko-fhc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g2C-ya-ksd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="990"/>
         </scene>
         <!--Map-->
         <scene sceneID="WY9-WT-j9R">
@@ -104,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAH-TK-B2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1820" y="-210"/>
+            <point key="canvasLocation" x="1820" y="-487"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="fEz-nE-hBD">
@@ -119,6 +137,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DoG-E8-pdS"/>
                         <segue destination="Cs2-Yh-prG" kind="relationship" relationship="viewControllers" id="SuV-mD-Fxt"/>
+                        <segue destination="04f-jk-oaU" kind="relationship" relationship="viewControllers" id="I7i-xB-AWm"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B2B-6K-Aqh" userLabel="First Responder" sceneMemberID="firstResponder"/>
