@@ -78,6 +78,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         else {
             fahrenheitValue = nil
         }
+        
     }
     
     @IBAction func dismissKeyboard(sender: AnyObject) {
@@ -94,11 +95,20 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
         
-        if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
+        // 알파벳 문자 허용하지 않기
+        let characters = CharacterSet.letters
+        let replacementTextHasCharacter = string.rangeOfCharacter(from: characters)
+        
+        if replacementTextHasCharacter != nil {
             return false
         }
         else {
-            return true
+            if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
+                return false
+            }
+            else {
+                return true
+            }
         }
     }
 }
