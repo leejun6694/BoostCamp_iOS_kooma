@@ -95,14 +95,11 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDecimalSeparator = string.range(of: ".")
         
-        // 알파벳 문자 허용하지 않기
-        let characters = CharacterSet.letters
-        let replacementTextHasCharacter = string.rangeOfCharacter(from: characters)
+        // number, ".", backspace만 입력 가능
+        let numbers: CharacterSet = CharacterSet(charactersIn: ".1234567890")
+        let replacementTextHasNumber = string.rangeOfCharacter(from: numbers)
         
-        if replacementTextHasCharacter != nil {
-            return false
-        }
-        else {
+        if replacementTextHasNumber != nil || string == "" {
             if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
                 return false
             }
@@ -110,5 +107,9 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
                 return true
             }
         }
+        else {
+            return false
+        }
+        
     }
 }
