@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate {
     
     var mapView: MKMapView!
     
@@ -20,7 +20,13 @@ class MapViewController: UIViewController {
         // 지도 뷰를 이 뷰 컨트롤러의 view로 설정
         view = mapView
         
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "satellite"])
+//        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "satellite"])
+        
+        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellite map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
+        let segmentedControl = UISegmentedControl(items: [standardString, satelliteString, hybridString])
+        
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         
@@ -56,7 +62,8 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         // super의 viewDidLoad 구현을 항상 호출한다
         super.viewDidLoad()
-            
+        
+        mapView.delegate = self
         print("MapViewController loaded its view.")
     }
 }

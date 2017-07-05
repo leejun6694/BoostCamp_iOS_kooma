@@ -14,6 +14,8 @@
   - [x] Bronze - 추가 탭
   - [ ] Silver - 사용자 위치
   - [ ] Gold - 핀 놓기
+- [x] Chapter 7 - 지역화
+  - [x] Bronze - 다른 언어로 지역화
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week1/FoodTracker)

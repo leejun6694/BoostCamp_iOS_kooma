@@ -1,0 +1,27 @@
+
+/* Class = "UIViewController"; title = "Web"; ObjectID = "04f-jk-oaU"; */
+"04f-jk-oaU.title" = "ウェブ";
+
+/* Class = "UILabel"; text = "is really"; ObjectID = "1xh-aU-S43"; */
+"1xh-aU-S43.text" = "本当に";
+
+/* Class = "UILabel"; text = "degrees Fahrenheit"; ObjectID = "4y2-xB-Pco"; */
+"4y2-xB-Pco.text" = "華氏";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "Bmj-7H-lGg"; */
+"Bmj-7H-lGg.title" = "地図";
+
+/* Class = "UITabBarItem"; title = "Convert"; ObjectID = "Efl-1W-4pa"; */
+"Efl-1W-4pa.title" = "変換する";
+
+/* Class = "UILabel"; text = "degrees Celsius"; ObjectID = "YZf-Jy-iJo"; */
+"YZf-Jy-iJo.text" = "摂氏";
+
+/* Class = "UITabBarItem"; title = "Web"; ObjectID = "dMR-tf-HX9"; */
+"dMR-tf-HX9.title" = "ウェブ";
+
+/* Class = "UITextField"; placeholder = "value"; ObjectID = "fSP-5d-gPN"; */
+"fSP-5d-gPN.placeholder" = "値";
+
+/* Class = "UILabel"; text = "100"; ObjectID = "pUG-lg-lct"; */
+"pUG-lg-lct.text" = "100";

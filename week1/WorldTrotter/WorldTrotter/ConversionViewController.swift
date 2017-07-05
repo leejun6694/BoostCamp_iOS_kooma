@@ -72,8 +72,15 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func fahrenheitFieldEditingChanged(textField: UITextField) {
-        if let text = textField.text, let value = Double(text) {
-            fahrenheitValue = value
+//        if let text = textField.text, let value = Double(text) {
+//            fahrenheitValue = value
+//        }
+//        else {
+//            fahrenheitValue = nil
+//        }
+        
+        if let text = textField.text, let number = numberFormatter.number(from: text) {
+            fahrenheitValue = number.doubleValue
         }
         else {
             fahrenheitValue = nil
@@ -92,14 +99,21 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
 //        print("Current text: \(String(describing: textField.text))")
 //        print("Replacement text: \(string)")
         
-        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
-        let replacementTextHasDecimalSeparator = string.range(of: ".")
+//        let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
+//        let replacementTextHasDecimalSeparator = string.range(of: ".")
         
-        // number, ".", backspace만 입력 가능
-        let numbers: CharacterSet = CharacterSet(charactersIn: ".1234567890")
-        let replacementTextHasNumber = string.rangeOfCharacter(from: numbers)
+        // 현 위치에 맞는 decimalSeparator
+        let currentLocale = Locale.current
+        let decimalSeparator = currentLocale.decimalSeparator ?? "."
         
-        if replacementTextHasNumber != nil || string == "" {
+        let existingTextHasDecimalSeparator = textField.text?.range(of: decimalSeparator)
+        let replacementTextHasDecimalSeparator = string.range(of: decimalSeparator)
+        
+        var availableText: CharacterSet = CharacterSet.decimalDigits
+        availableText.insert(charactersIn: decimalSeparator)
+        let replacementTextHasNumber = string.rangeOfCharacter(from: availableText)
+        
+        if replacementTextHasNumber != nil || string.isEmpty {
             if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
                 return false
             }
@@ -110,6 +124,7 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
         else {
             return false
         }
+        
         
     }
 }
