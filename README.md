@@ -1,3 +1,5 @@
+# BoostCamp iOS - Kooma
+
 ## 아론 힐리가스의 iOS 프로그래밍
 > [Quiz](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/Quiz)
 - [x] Chapter 1 - 간단한 iOS 앱 만들기
@@ -18,7 +20,7 @@
   - [x] Bronze - 다른 언어로 지역화
 
 ## Start Developing iOS Apps (Swift)
-> [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week1/FoodTracker)
+> [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
 - [x] Jump Right In
 - [x] Build a Basic UI
 - [x] Connect the UI to Code
