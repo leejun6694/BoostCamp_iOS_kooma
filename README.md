@@ -24,7 +24,9 @@
 - [x] Jump Right In
 - [x] Build a Basic UI
 - [x] Connect the UI to Code
-- [ ] Work with View Controllers
+- [x] Work with View Controllers
+- [ ] Implement a Custom Control
+- [ ] Define Your Data Model
 
 ## Assignment
 > [Login View](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week1/LoginView)

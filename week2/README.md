@@ -31,7 +31,8 @@
 
 > FoodTracker - Work with View Controllers
 - interaction : need to define an action (gesture)
-- UIImagePickerController : manages the user interface for taking pictures and for choosing saved images to use in your app
+- UIImagePickerController
+  - manages the user interface for taking pictures and for choosing saved images to use in your app
 - present(_:animated:completion:)
   - _: UIViewController
   - animated: animates the presentation of the viewController
@@ -39,6 +40,18 @@
 - UIImagePickerControllerOriginalImage vs UIImagePickerControllerEditedImage
   - UIImagePickerController는 사용자가 사진이나 영상을 수정할 수 있는 allowsEditing 프로퍼티를 가지고 있는데 이를 통해 original image와 edited image를 구분
 - SIGABRT signal : an error occurred that was serious enough to cause the app to abort
+
+> FoodTracker - Implement a Custom Control
+- init(frame:)
+  - for programatically initializing the view
+- init?(coder:)
+  - for loading the view from the storyboard
+- override & required
+  - subclass에서 초기화하지 않으면 superclass의 initializer를 자동으로 상속
+  - subclass에서 initializer를 구현하면 더 이상 superclass에서 상속받지 않음
+  - 그러나 superclass에서 하나 이상의 initializer를 표시가능 : required
+  - subclass는 모든 initializer를 구현해야함 (또는 자동 상속)
+  - 더 나아가 subclass가 required 표시를 함으로써 자신의 subclass가 initializer를 구현해야함을 나타냄
 
 
 ### Qeustion
