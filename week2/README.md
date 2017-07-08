@@ -10,7 +10,7 @@
 - [ ] 스위프트 읽어오기 과제
 - [ ] iOS 프로그래밍 가이드 읽어오기 과제
 - [ ] 나는 프로그래머인데 왜 H.I.G를 배웠을까?
-- [ ] 회원가입 화면 구현해보기
+- [x] 회원가입 화면 구현해보기
 - 도전 과제
   - [ ] 회원가입 화면이 나오도록 구성
   - [ ] Modal dismiss
@@ -21,7 +21,7 @@
 - [ ] 1주차 layout -> code화
 
 ### Study
-> View life cycle example
+> View life cycle
 - viewWillAppear : 해당 view가 view 계층에 추가되기 전에 호출
 - viewDidAppear : 해당 view가 view 계층에 추가된 이후에 호출
   - fetching data or showing an animation
@@ -69,6 +69,9 @@
   - swift file : base file, no inherit from any other classes
 - init? : Failable initializer
 - guard : validating data before letting code execute
+
+> Project - Sign Up View
+- UIImageView : Tap Gesture Recognizer 사용시 User Interface Enabled 체크!
 
 
 ### Question

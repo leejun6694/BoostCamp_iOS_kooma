@@ -33,5 +33,4 @@
 - [ ] Persist Data
 
 ## Assignment
-> [Login View](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week1/LoginView)
-  - [x] Rotation View
+> [Login View](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week2/LoginView)
