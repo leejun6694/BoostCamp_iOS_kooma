@@ -15,7 +15,7 @@
   - [x] 회원가입 화면이 나오도록 구성
   - [x] Modal dismiss
   - [x] 비밀번호 텍스트 일치 여부
-  - [ ] Rotation
+  - [x] SignUp View Rotation
 
 ### Todo
 - [ ] 1주차 layout -> code화
