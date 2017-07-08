@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signUp(sender: AnyObject) {
-        print("touch up inside - sign up")
+        
     }
     
     // Dissmiss 'keyboard view' when touch up anywhere (no textfield)

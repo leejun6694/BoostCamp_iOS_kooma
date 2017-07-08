@@ -67,5 +67,18 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         
         imagePickerController.delegate = self
         present(imagePickerController, animated: true, completion: nil)
-    }    
+    }
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signUpButton(sender: AnyObject) {
+        if pwField.text == confirmField.text {
+            dismiss(animated: true, completion: nil)
+        }
+        else {
+            print("check password")
+        }
+    }
 }

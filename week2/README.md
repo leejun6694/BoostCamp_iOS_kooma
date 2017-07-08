@@ -12,13 +12,14 @@
 - [ ] 나는 프로그래머인데 왜 H.I.G를 배웠을까?
 - [x] 회원가입 화면 구현해보기
 - 도전 과제
-  - [ ] 회원가입 화면이 나오도록 구성
-  - [ ] Modal dismiss
-  - [ ] 비밀번호 텍스트 일치 여부
+  - [x] 회원가입 화면이 나오도록 구성
+  - [x] Modal dismiss
+  - [x] 비밀번호 텍스트 일치 여부
   - [ ] Rotation
 
 ### Todo
 - [ ] 1주차 layout -> code화
+- [ ] SignUpView 아이디와 비밀번호 값이 없는 경우 dismiss하지 않고 각 경우에 맞는 log 띄우기
 
 ### Study
 > View life cycle
