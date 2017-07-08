@@ -43,7 +43,7 @@
 
 > FoodTracker - Implement a Custom Control
 - init(frame:)
-  - for programatically initializing the view
+  - for programmatically initializing the view
 - init?(coder:)
   - for loading the view from the storyboard
 - override & required
@@ -52,9 +52,21 @@
   - 그러나 superclass에서 하나 이상의 initializer를 표시가능 : required
   - subclass는 모든 initializer를 구현해야함 (또는 자동 상속)
   - 더 나아가 subclass가 required 표시를 함으로써 자신의 subclass가 initializer를 구현해야함을 나타냄
+- private function : 선언한 클래스 내에서만 호출 가능
+- translatesAutoresizingMaskIntoConstraints (필수로 적어줘야 하는건 아님))
+  - true : use default constraints
+  - false : disable automatically generated constraints
+- @IBDesignable : Interface Builder가 캔버스 내에서 직접 컨트롤의 복사본을 인스턴스화 하고 그릴 수 있도록 함 (코드 -> 시각적)
+- @IBInspectable : Attribute Inspector에서 설정할 수 있는 속성을 지정함 -> didSet 필요 (결과를 반영하기 위해)
+- enumerated : (n, x) 꼴로 배열의 index와 함께 불러와줌
+- Rating Control - work with Voice Over
+  - Accessibility label
+  - Accessibility value
+  - Accessibility hint
 
-
-### Qeustion
+### Question
 - resignFirstResponder()
   - 단지 hide keyboard에만 쓰이는게 아닐 듯
   - 정확한 기능
+- required
+  - 자동 상속이 아니고 필요함?

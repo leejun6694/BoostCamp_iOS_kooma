@@ -25,7 +25,7 @@
 - [x] Build a Basic UI
 - [x] Connect the UI to Code
 - [x] Work with View Controllers
-- [ ] Implement a Custom Control
+- [x] Implement a Custom Control
 - [ ] Define Your Data Model
 
 ## Assignment
