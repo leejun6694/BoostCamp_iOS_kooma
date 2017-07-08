@@ -2,7 +2,7 @@
 
 ### Assignment
 - [ ] 애플의 [MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html) 읽어오기
-- [ ] [Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)의 Define Your Data Model 파트까지 읽어오기
+- [x] [Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)의 Define Your Data Model 파트까지 읽어오기
 - [x] 교재 4 ~ 6장 문제 해결해보기
 - [ ] 교재의 UIGestureRecognizer(18장) 내용 익히기
 - [ ] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
@@ -63,6 +63,13 @@
   - Accessibility label
   - Accessibility value
   - Accessibility hint
+
+> FoodTracker - Define Your Data Model
+- cocoa touch class vs swift file
+  - swift file : base file, no inherit from any other classes
+- init? : Failable initializer
+- guard : validating data before letting code execute
+
 
 ### Question
 - resignFirstResponder()

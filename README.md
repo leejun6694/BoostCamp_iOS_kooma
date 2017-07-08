@@ -26,7 +26,11 @@
 - [x] Connect the UI to Code
 - [x] Work with View Controllers
 - [x] Implement a Custom Control
-- [ ] Define Your Data Model
+- [x] Define Your Data Model
+- [ ] Create a Table View
+- [ ] Implement Navigation
+- [ ] Implement Edit and Delete Behavior
+- [ ] Persist Data
 
 ## Assignment
 > [Login View](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week1/LoginView)
