@@ -8,4 +8,4 @@
 - [x] 스위프트 읽어오기 과제
 - [x] 로그인 화면 구성해보기
 - 도전 과제
-  - [x] Rotation
+  - [x] LogIn View Rotation
