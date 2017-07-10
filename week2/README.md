@@ -1,12 +1,12 @@
 # Week2
 
 ### Assignment
-- [ ] 애플의 [MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html) 읽어오기
+- [x] 애플의 [MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html) 읽어오기
 - [x] [Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)의 Define Your Data Model 파트까지 읽어오기
 - [x] 교재 4 ~ 6장 문제 해결해보기
 - [ ] 교재의 UIGestureRecognizer(18장) 내용 익히기
 - [ ] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
-- [ ] Cocoa Fundamentals Guide 문서의 챕터 읽어오기
+- [x] Cocoa Fundamentals Guide 문서의 챕터 읽어오기
 - [ ] 스위프트 읽어오기 과제
 - [ ] iOS 프로그래밍 가이드 읽어오기 과제
 - [ ] 나는 프로그래머인데 왜 H.I.G를 배웠을까?
@@ -74,6 +74,36 @@
 > Project - Sign Up View
 - UIImageView : Tap Gesture Recognizer 사용시 User Interface Enabled 체크!
 
+> Cocoa Fundamentals Guide
+- Cocoa Touch : The frameworks in this layer directly support applications based on iOS. They include two Objective-C frameworks that are particularly important for developing applications for iOS
+  - UIKit : provides the objects an application displays in its user interface and defines the structure for application behavior, including event handling and drawing.
+  - Foundation : defines the basic behavior of objects, establishes mechanisms for their management, and provides objects for primitive data types, collections, and operating-system services.
+- Foundation : defines a base layer of classes that can be used for any type of Cocoa program
+  - no appear in a user interface
+  - no exclusively used to support a user interface
+  - memory management
+  - object mutability
+  - notification
+  - object persist when they're needed
+  - freed when they are no longer needed
+  - garbage collection : automatically tracks and disposes of objects that your program no longer needs
+
+  - Mutable class variants : mutable class always being a subclass of the immutable one
+  - Class clusters
+  - Notifications : allows objects to be kept informed of what another object is doing or is encountering in the way of user or system events
+
+- UIKit : provide all the classes that an application needs to construct and manage its user interface
+  - UIResponder : default behavior for event handling method
+  - UIControl : set of event types for controls
+  - UIEvent : represent events that user’s finger movements on the screen are what originate events
+
+> TouchTracker
+- 구조체
+  - 구조체는 상속을 지원 안함
+  - 구조체는 아무런 이니셜라이저 선언이 없으면 구조체 멤버 단위 이니셜라이저를 얻음
+  - 모든 프로퍼티가 기본 값을 갖고 다른 이니셜라이저가 없다면 빈 이니셜라이저를 얻음
+  - 값 타입
+
 
 ### Question
 - resignFirstResponder()
@@ -81,3 +111,7 @@
   - 정확한 기능
 - required
   - 자동 상속이 아니고 필요함?
+- Modal View code?
+- UIResponder vs UIControl
+  - UIResponder : touch
+  - UIControl : button, slider
