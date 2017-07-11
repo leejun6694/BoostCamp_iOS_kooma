@@ -130,6 +130,38 @@
 - UIGestureRecognizerDelegate
   - gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {} : 중복 Gesture를 허용 (true)
 
+> iOS Technology Overview
+- Cocoa Touch Layer : define the appearance of the app
+  - App Extension : iOS 8.0+. Share, Action, Widget, Photo editing, Document provider, Custom keyboard
+  - Handoff : one device then switch another device
+  - Document Picker : sharing document between apps
+  - Air drop : share data nearby device
+  - TextKit : handling text
+  - UIKit Dynamics : dynamic behavior on view
+  - Multitasking : focus on battery life
+  - Auto Layout : define rules for how to layout the element in the user interface
+  - Storyboard : design app's user interface
+  - UI State Preservation : seamless experience
+  - Apple Push Notification Service : alert users about new information even when user's app is not actively running
+  - Local Notifications : can notify in background
+  - Gesture Recognizer : detect common types of gesture
+  - Standard System View Controller : use the provided view controllers
+- Media Layer
+  - Graphics Technologies
+  - Audio Technologies
+  - Video Technologies
+  - AirPlay : content to 3rd party
+- Core Services Layer : fundamental system services for apps
+  - Peer-to-Peer Services : bluetooth
+  - iCloud Storage : access item from all of iOS device
+  - Data Protection
+  - File-Sharing Support : device-iTunes
+  - Grand Central Dispatch : manage the execution of tasks in the app
+  - In-App Purchase
+  - SQLite : embed a lightweight SQL database into the app
+  - XML Support
+- Core OS Layer : contains the low-level features that most other technologies are built upon
+
 
 ### Question
 - resignFirstResponder()
