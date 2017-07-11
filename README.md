@@ -18,6 +18,10 @@
   - [ ] Gold - 핀 놓기
 - [x] Chapter 7 - 지역화
   - [x] Bronze - 다른 언어로 지역화
+> [TouchTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/TouchTracker)
+- [x] Chapter 17 - 터치 이벤트와 UIResponder
+  - [ ] Silver - 색상
+  - [ ] Gold - 원
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
