@@ -4,7 +4,7 @@
 - [x] 애플의 [MVC 문서](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/MVC.html) 읽어오기
 - [x] [Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)의 Define Your Data Model 파트까지 읽어오기
 - [x] 교재 4 ~ 6장 문제 해결해보기
-- [ ] 교재의 UIGestureRecognizer(18장) 내용 익히기
+- [x] 교재의 UIGestureRecognizer(18장) 내용 익히기
 - [ ] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
 - [x] Cocoa Fundamentals Guide 문서의 챕터 읽어오기
 - [ ] 스위프트 읽어오기 과제
@@ -115,6 +115,20 @@
   - 이 method는 collection에 객체를 추가하지만 그 collection이 객체에 대한 string reference를 만들지 않길 원하는 경우에 유용
 - print(#function) : method명을 나타내는 String 반환해서 출력
 - UITouch 객체는 절대 retain하지 말라고 문서에 쓰여짐 -> init(nonretainedObject:)
+- (gesture).require(toFail: (another gesture)) : 두 개의 제스처가 중복적으로 일어나는 것을 방지함
+- 현재 위치에서 가장 가까운 선찾기
+  - 완료된 선의 집합에서 index로 찾기
+  - index : tap하는 point 기준으로 가장 가까운 점 (일정 거리 이내)로 탐색
+- becomeFirstResponder()
+  - 반드시 canBecomeFirstResponder() method를 override 해야함
+- tap : 개별 제스처 vs long press : 연속 제스처
+- cancelsTouchesInView
+  - 모든 UIGestureRecognizer에 존재하는 property
+  - 기본 값은 true
+  - true : 제스처 인식기는 제스처를 인식하고 나서 터치를 먹음
+  - false : 제스처 인식기가 인식한 터치가 UIResponder method를 통해 뷰에도 전달되는 것을 보장
+- UIGestureRecognizerDelegate
+  - gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {} : 중복 Gesture를 허용 (true)
 
 
 ### Question
@@ -127,3 +141,7 @@
 - UIResponder vs UIControl
   - UIResponder : touch
   - UIControl : button, slider
+- canBecomeFirstResponder : 역할
+- Chapter 18 중 view의 이어지는 터치와 GestureRecognizer의 pan이 겹쳐서 view의 이어지는 터치가 불완전하게 끝나는 현상 발생
+  - 이어지는 터치 중간에 pan을 isEnable false로 바꿔서 해결하긴 했지만 깔끔하지가 않은 느낌
+  - touchesMoved, moveRecognizer

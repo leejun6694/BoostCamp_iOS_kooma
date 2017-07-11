@@ -22,6 +22,9 @@
 - [x] Chapter 17 - 터치 이벤트와 UIResponder
   - [ ] Silver - 색상
   - [ ] Gold - 원
+- [x] Chapter 18 - UIGestureRecognizer와 UIMenuController
+  - [ ] Silver - 미스터리한 선
+  - [ ] Gold - 속도와 크기
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
