@@ -5,7 +5,7 @@
 - [x] [Start Developing iOS Apps](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/index.html)의 Define Your Data Model 파트까지 읽어오기
 - [x] 교재 4 ~ 6장 문제 해결해보기
 - [x] 교재의 UIGestureRecognizer(18장) 내용 익히기
-- [ ] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
+- [x] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
 - [x] Cocoa Fundamentals Guide 문서의 챕터 읽어오기
 - [ ] 스위프트 읽어오기 과제
 - [ ] iOS 프로그래밍 가이드 읽어오기 과제
