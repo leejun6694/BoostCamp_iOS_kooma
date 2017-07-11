@@ -103,6 +103,18 @@
   - 구조체는 아무런 이니셜라이저 선언이 없으면 구조체 멤버 단위 이니셜라이저를 얻음
   - 모든 프로퍼티가 기본 값을 갖고 다른 이니셜라이저가 없다면 빈 이니셜라이저를 얻음
   - 값 타입
+- UIBezierPath : view에 직선이나 곡선의 경로를 정의
+  - lineWidth : 선의 굵기
+  - lineCapStyle : 선의 끝부분 스타일
+  - move(to:) : 현재 포인트에서 특정 위치로 이동
+  - addLine(to:) : 이동 경로를 추가 -> move(to:) 와 같이 사용
+  - stroke() : 현재 경로를 그림
+- setNeedsDisplay() : view를 다시 그림
+- view -> Multiple Touch : multipleTouchesEnabled = true
+- NSValue(nonretainedObject:) : 지정된 객체를 포함하는 값을 생성
+  - 이 method는 collection에 객체를 추가하지만 그 collection이 객체에 대한 string reference를 만들지 않길 원하는 경우에 유용
+- print(#function) : method명을 나타내는 String 반환해서 출력
+- UITouch 객체는 절대 retain하지 말라고 문서에 쓰여짐 -> init(nonretainedObject:)
 
 
 ### Question
