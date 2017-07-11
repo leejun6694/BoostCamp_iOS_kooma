@@ -145,3 +145,7 @@
 - Chapter 18 중 view의 이어지는 터치와 GestureRecognizer의 pan이 겹쳐서 view의 이어지는 터치가 불완전하게 끝나는 현상 발생
   - 이어지는 터치 중간에 pan을 isEnable false로 바꿔서 해결하긴 했지만 깔끔하지가 않은 느낌
   - touchesMoved, moveRecognizer
+- MapView
+  -ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1763: InfoLog SolidRibbonShader:
+  - ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader
+- LogInView 180도 회전

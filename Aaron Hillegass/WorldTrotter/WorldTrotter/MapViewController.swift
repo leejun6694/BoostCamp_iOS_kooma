@@ -9,9 +9,14 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate {
+@IBDesignable class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    // MARK: properties
     var mapView: MKMapView!
+    var locationManager: CLLocationManager!
+    var latitudes: Array<Double> = []
+    var longitudes: Array<Double> = []
+    var currentButton = UIButton()
     
     override func loadView() {
         // 지도 뷰 생성
@@ -36,7 +41,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         view.addSubview(segmentedControl)
         
         let topConstraint = segmentedControl.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 8)
-        
         let margins = view.layoutMarginsGuide
         let leadingConstraint = segmentedControl.leadingAnchor.constraint(equalTo: margins.leadingAnchor)
         let trailingConstraint = segmentedControl.trailingAnchor.constraint(equalTo: margins.trailingAnchor)
@@ -58,12 +62,57 @@ class MapViewController: UIViewController, MKMapViewDelegate {
             break
         }
     }
-    
+
     override func viewDidLoad() {
         // super의 viewDidLoad 구현을 항상 호출한다
         super.viewDidLoad()
         
-        mapView.delegate = self
         print("MapViewController loaded its view.")
+        
+        setUpCurrentButton()
     }
+    
+    // MARK: Button Functions
+    
+    private func setUpCurrentButton() {
+        currentButton.setTitle("Current Location", for: .normal)
+        currentButton.setTitleColor(.blue, for: .normal)
+        currentButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        currentButton.translatesAutoresizingMaskIntoConstraints = false
+        currentButton.addTarget(self, action: #selector(currentLocation(sender:)), for: .touchUpInside)
+        view.addSubview(currentButton)
+        
+        let bottomConstraintBtn = currentButton.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -8)
+        let marginsBtn = view.layoutMarginsGuide
+        let leadingConstraintBtn = currentButton.leadingAnchor.constraint(equalTo: marginsBtn.leadingAnchor)
+        let trailingConstraintBtn = currentButton.trailingAnchor.constraint(equalTo: marginsBtn.trailingAnchor)
+        
+        bottomConstraintBtn.isActive = true
+        leadingConstraintBtn.isActive = true
+        trailingConstraintBtn.isActive = true
+    }
+    
+    func currentLocation(sender: AnyObject) {
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        
+//        mapView.setUserTrackingMode(.follow, animated: true)
+
+        locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        let currentLatitude = locationManager.location?.coordinate.latitude ?? 0.0
+        let currentLongitude = locationManager.location?.coordinate.longitude ?? 0.0
+        
+        latitudes.append(currentLatitude)
+        longitudes.append(currentLongitude)
+        
+        let noLocation = CLLocationCoordinate2DMake(currentLatitude, currentLongitude)
+        let region = MKCoordinateRegionMakeWithDistance(noLocation, 200, 200)
+        mapView.setRegion(region, animated: true)
+        
+        locationManager.startUpdatingLocation()
+    }
+    
 }
