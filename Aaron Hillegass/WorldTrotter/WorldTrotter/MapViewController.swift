@@ -12,6 +12,7 @@ import MapKit
 @IBDesignable class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     // MARK: properties
+    /* 프로퍼티에 적절한 접근권한 줘보기 open, public, internal, fileprivate, private */
     var mapView: MKMapView!
     var locationManager: CLLocationManager!
     var latitudes: Array<Double> = []
@@ -55,9 +56,9 @@ import MapKit
         case 0:
             mapView.mapType = .standard
         case 1:
-            mapView.mapType = .hybrid
-        case 2:
             mapView.mapType = .satellite
+        case 2:
+            mapView.mapType = .hybrid
         default:
             break
         }
