@@ -7,9 +7,9 @@
 - [x] 교재의 UIGestureRecognizer(18장) 내용 익히기
 - [x] [iOS Technology Overview](https://developer.apple.com/library/content/documentation/Miscellaneous/Conceptual/iPhoneOSTechOverview/Introduction/Introduction.html) 문서 훑어보기
 - [x] Cocoa Fundamentals Guide 문서의 챕터 읽어오기
-- [ ] 스위프트 읽어오기 과제
+- [x] 스위프트 읽어오기 과제
 - [ ] iOS 프로그래밍 가이드 읽어오기 과제
-- [ ] 나는 프로그래머인데 왜 H.I.G를 배웠을까?
+- [x] 나는 프로그래머인데 왜 H.I.G를 배웠을까?
 - [x] 회원가입 화면 구현해보기
 - 도전 과제
   - [x] 회원가입 화면이 나오도록 구성
@@ -87,7 +87,6 @@
   - object persist when they're needed
   - freed when they are no longer needed
   - garbage collection : automatically tracks and disposes of objects that your program no longer needs
-
   - Mutable class variants : mutable class always being a subclass of the immutable one
   - Class clusters
   - Notifications : allows objects to be kept informed of what another object is doing or is encountering in the way of user or system events
@@ -181,3 +180,4 @@
   -ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1763: InfoLog SolidRibbonShader:
   - ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader
 - LogInView 180도 회전
+- closure - escaping
