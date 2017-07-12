@@ -27,8 +27,9 @@ class LoginViewController: UIViewController {
     
     // Dissmiss 'keyboard view' when touch up anywhere (no textfield)
     @IBAction func dismissKeyboard(sender: AnyObject) {
-        idField.resignFirstResponder()
-        pwField.resignFirstResponder()
+        self.view.endEditing(true)
+//        idField.resignFirstResponder()
+//        pwField.resignFirstResponder()
     }
     
 }

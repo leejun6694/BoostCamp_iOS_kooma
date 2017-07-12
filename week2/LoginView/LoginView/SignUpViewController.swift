@@ -17,6 +17,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet var confirmField: UITextField!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var textView: UITextView!
+
+    // 이미지 피커
+    private lazy var imagePickerController: UIImagePickerController = {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        return imagePickerController
+    }()
     
     override func viewDidLoad() {
         idField.delegate = self
@@ -62,10 +71,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         confirmField.resignFirstResponder()
         textView.resignFirstResponder()
         
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        
-        imagePickerController.delegate = self
+        // 사용자가 이미지 피커를 여러 번 볼 수도 있다는 가정을 하면, 이미지 피커를 매 번 생성하지 않고, 프로퍼티로 활용해 보는 것은 어떨런지
         present(imagePickerController, animated: true, completion: nil)
     }
     
