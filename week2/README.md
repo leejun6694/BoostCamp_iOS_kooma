@@ -19,7 +19,7 @@
 
 ### Todo
 - [ ] 1주차 layout -> code화
-- [ ] SignUpView 아이디와 비밀번호 값이 없는 경우 dismiss하지 않고 각 경우에 맞는 log 띄우기
+- [ ] SignUpView 아이디와 비밀번호 값이 없는 경우 dismiss하지 않고 각 경우에 맞는 Modal 띄우기
 
 ### Study
 > View life cycle
@@ -166,13 +166,13 @@
 - resignFirstResponder()
   - 단지 hide keyboard에만 쓰이는게 아닐 듯
   - 정확한 기능
+  - canBecomeFirstResponder
 - required
   - 자동 상속이 아니고 필요함?
 - Modal View code?
 - UIResponder vs UIControl
   - UIResponder : touch
   - UIControl : button, slider
-- canBecomeFirstResponder : 역할
 - Chapter 18 중 view의 이어지는 터치와 GestureRecognizer의 pan이 겹쳐서 view의 이어지는 터치가 불완전하게 끝나는 현상 발생
   - 이어지는 터치 중간에 pan을 isEnable false로 바꿔서 해결하긴 했지만 깔끔하지가 않은 느낌
   - touchesMoved, moveRecognizer
@@ -180,4 +180,3 @@
   -ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1763: InfoLog SolidRibbonShader:
   - ERROR /BuildRoot/Library/Caches/com.apple.xbs/Sources/VectorKit_Sim/VectorKit-1230.34.9.30.27/GeoGL/GeoGL/GLCoreContext.cpp 1764: WARNING: Output of vertex shader 'v_gradient' not read by fragment shader
 - LogInView 180도 회전
-- closure - escaping
