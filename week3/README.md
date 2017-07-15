@@ -19,9 +19,17 @@
   - 데이터 소스는 매 요청마다 새로운 셀을 만드는 대신에 가용 풀을 먼저 확인
   - 풀에 사용하지 않은 셀이 있다면 그 셀에 새로운 데이터를 설정하고, 테이블 데이터 소스는 뷰에 셀을 반환
   - 반드시 반환된 셀의 타입을 확인해야 함(다른 타입의 셀이 존재할 수도 있음)
-  - reuseIdentifier 프로퍼티를 사용해 재사용
+  - reuseIdentifier 프로퍼티를 사용해 재사용 -> 관례적으로 보통 셀 클래스의 이름을 사용
+- isEditing
+  - @property(nonatomic,getter=isEditing) BOOL editing;
+  - Updates the appearance of the Edit|Done button item as necessary. Clients who override it must call super first
+- setEditing
+  - extension UIViewController
+  - open func setEditing(_ editing: Bool, animated: Bool)
+- move item
+  - select -> delete -> create
+- ActionController
 
 ### Question
 - 의존 관계 역전 원칙
-- UITableViewCell(style:reuseIdentifier:)
-  - reuseIdentifier?
+- Insets
