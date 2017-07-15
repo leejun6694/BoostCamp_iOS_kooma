@@ -3,6 +3,11 @@
 ### Assignment
 
 ### Todo
+- [ ] 교재 9~11장 문제 해결해보기
+- [ ] 스위프트 읽어오기 과제
+- [ ] 생각 : 코딩 컨벤션은 왜 중요할까?
+- [ ] UIView를 상속받아 버튼 만들어보기
+- [ ] 스스로 만든 버튼을 로그인, 회원가입 화면에 적용해보기
 
 ### Study
 - initializer
@@ -29,6 +34,8 @@
 - move item
   - select -> delete -> create
 - ActionController
+  - .alert : 계속 진행하기 위해 사용자의 결정이 필요한 중요 정보를 표시
+  - .actionsheet : 사용자의 결정을 되돌리거나 그 동작이 중요하지 않은 정보를 표시
 
 ### Question
 - 의존 관계 역전 원칙
