@@ -4,7 +4,7 @@
 > [Quiz](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/Quiz)
 - [x] Chapter 1 - 간단한 iOS 앱 만들기
 - [x] Chapter 8 - 애니메이션 제어
-  - [ ] Bronze - 스프링 애니메이션
+  - [x] Bronze - 스프링 애니메이션
   - [ ] Silver - 레이아웃 가이드
 > [MyPlayground](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/MyPlayground.playground)
 - [x] Chapter 2 - Swift 언어
