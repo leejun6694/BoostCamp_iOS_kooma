@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-AI-T8D">
-                                <rect key="frame" x="175" y="20" width="25" height="21"/>
+                                <rect key="frame" x="166.5" y="20" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,22 +47,35 @@
                                     <action selector="showAnswerWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tx9-iv-8Z3"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS5-FK-Zz8">
+                                <rect key="frame" x="166.5" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="zS5-FK-Zz8" firstAttribute="width" secondItem="ArA-AI-T8D" secondAttribute="width" id="19x-D8-iAE"/>
                             <constraint firstItem="rtz-Ao-WXv" firstAttribute="centerX" secondItem="qlP-zw-MoY" secondAttribute="centerX" id="1Cz-ts-TiZ"/>
-                            <constraint firstItem="ArA-AI-T8D" firstAttribute="centerX" secondItem="qlP-zw-MoY" secondAttribute="centerX" id="7KP-OT-EgX"/>
                             <constraint firstItem="rtz-Ao-WXv" firstAttribute="top" secondItem="VeQ-Ka-Nye" secondAttribute="bottom" constant="8" id="CNB-hd-ass"/>
+                            <constraint firstItem="zS5-FK-Zz8" firstAttribute="top" secondItem="ArA-AI-T8D" secondAttribute="top" id="Ch3-px-o7j"/>
                             <constraint firstItem="VeQ-Ka-Nye" firstAttribute="top" secondItem="qlP-zw-MoY" secondAttribute="bottom" constant="244" id="HX0-Wa-InZ"/>
                             <constraint firstItem="VeQ-Ka-Nye" firstAttribute="centerX" secondItem="qlP-zw-MoY" secondAttribute="centerX" id="JNv-gU-shs"/>
+                            <constraint firstItem="qlP-zw-MoY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QVv-Ii-PWp"/>
                             <constraint firstItem="qlP-zw-MoY" firstAttribute="top" secondItem="ArA-AI-T8D" secondAttribute="bottom" constant="8" id="c3I-3U-aVB"/>
+                            <constraint firstItem="zS5-FK-Zz8" firstAttribute="height" secondItem="ArA-AI-T8D" secondAttribute="height" id="etk-Ho-Ew9"/>
+                            <constraint firstItem="zS5-FK-Zz8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lHL-js-oES"/>
                             <constraint firstItem="ArA-AI-T8D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wTp-vC-BqO"/>
                             <constraint firstItem="ArA-AI-T8D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yd8-cE-sRO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="VeQ-Ka-Nye" id="KSe-CI-zbC"/>
-                        <outlet property="questionLabel" destination="ArA-AI-T8D" id="XlI-ZD-hmm"/>
+                        <outlet property="currentQuestionLabel" destination="ArA-AI-T8D" id="Usu-XM-DXW"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="wTp-vC-BqO" id="ix8-5r-O1h"/>
+                        <outlet property="nextQuestionLabel" destination="zS5-FK-Zz8" id="3jX-3a-3AY"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="lHL-js-oES" id="0jX-Ue-sRa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
