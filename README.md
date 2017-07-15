@@ -28,6 +28,11 @@
 - [x] Chapter 18 - UIGestureRecognizer와 UIMenuController
   - [ ] Silver - 미스터리한 선
   - [ ] Gold - 속도와 크기
+> [Homepwner](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/Homepwner)
+- [x] Chapter 9 - UITableView와 UITableViewController
+  - [ ] Bronze - 멀티 섹션
+  - [ ] Silver - 고정 행
+  - [ ] Gold - 테이블 커스터마이징
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
