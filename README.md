@@ -38,7 +38,7 @@
   - [x] Silver - 재정렬 막기
   - [x] Gold - 재정렬 완전히 막기
 - [x] Chapter 11 - UITableViewCell 하위 클래스 만들기
-  - [ ] Bronze - 셀 색상
+  - [x] Bronze - 셀 색상
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
