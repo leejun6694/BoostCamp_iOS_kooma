@@ -35,7 +35,7 @@
   - [ ] Gold - 테이블 커스터마이징
 - [x] Chapter 10 - UITableView 편집하기
   - [x] Bronze - Delete 버튼 이름 변경하기
-  - [ ] Silver - 재정렬 막기
+  - [x] Silver - 재정렬 막기
   - [ ] Gold - 재정렬 완전히 막기
 
 ## Start Developing iOS Apps (Swift)

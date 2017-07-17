@@ -114,6 +114,16 @@ class ItemViewController: UITableViewController {
         }
     }
     
+    // 특정 cell 재정렬 막기
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.row < itemStore.allItems.count {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         itemStore.moveItemAtIndex(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
