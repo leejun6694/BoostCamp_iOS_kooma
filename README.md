@@ -55,4 +55,9 @@
 
 ## Assignment
 > [Login View](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week2/LoginView)
+  - [x] Login View Rotation
+  - [x] Create SignUp View
+  - [x] Modal
+  - [x] Check Password
 > [MakeButton](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week3/MakeButton)
+  - [x] normal, highlighted, selected, disabled
