@@ -31,7 +31,7 @@
 > [Homepwner](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/Homepwner)
 - [x] Chapter 9 - UITableView와 UITableViewController
   - [ ] Bronze - 멀티 섹션
-  - [ ] Silver - 고정 행
+  - [x] Silver - 고정 행
   - [ ] Gold - 테이블 커스터마이징
 - [x] Chapter 10 - UITableView 편집하기
   - [x] Bronze - Delete 버튼 이름 변경하기

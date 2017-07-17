@@ -58,10 +58,10 @@
 		72BD47881F1A175D00CFE19B /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
-				72BD47A11F1A306500CFE19B /* Item.swift */,
 				72BD47891F1A175D00CFE19B /* AppDelegate.swift */,
 				72BD479B1F1A183500CFE19B /* ItemsViewController.swift */,
 				72BD479F1F1A1F0200CFE19B /* ItemStore.swift */,
+				72BD47A11F1A306500CFE19B /* Item.swift */,
 				72BD478D1F1A175D00CFE19B /* Main.storyboard */,
 				72BD47901F1A175D00CFE19B /* Assets.xcassets */,
 				72BD47921F1A175D00CFE19B /* LaunchScreen.storyboard */,
@@ -310,6 +310,7 @@
 				72BD479A1F1A175D00CFE19B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

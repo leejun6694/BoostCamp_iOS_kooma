@@ -57,7 +57,7 @@ class ItemViewController: UITableViewController {
     // MARK: override
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,12 +69,23 @@ class ItemViewController: UITableViewController {
         
         // 물품 배열의 n번째 있는 항목의 설명을 n과 row와 일치하는 셀의 텍스트로 설정한다
         // 이셀은 테이블 뷰의 n 번째 행에 나타난다
-        let item = itemStore.allItems[indexPath.row]
-        
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        if indexPath.row != itemStore.allItems.count {
+            let item = itemStore.allItems[indexPath.row]
+            
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        }
+        // 마지막 cell
+        else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
+        }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
