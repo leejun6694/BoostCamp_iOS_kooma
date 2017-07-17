@@ -4,7 +4,7 @@
 - [x] 교재 9~11장 문제 해결해보기
 - [ ] 스위프트 읽어오기 과제
 - [ ] 생각 : 코딩 컨벤션은 왜 중요할까?
-- [ ] UIView를 상속받아 버튼 만들어보기
+- [x] UIView를 상속받아 버튼 만들어보기
 - [ ] 스스로 만든 버튼을 로그인, 회원가입 화면에 적용해보기
 
 ### Todo
@@ -40,6 +40,15 @@
 - UITableViewAutomaticDimension
   - rowHeight의 기본 값
 
+> UIButton
+- UIControlState
+  - normal : enabled but neither selected nor highlighted
+  - highlighted : becomes highlighted when a touch event enters the control’s bounds, and it loses that highlight when there is a touch-up event or when the touch event exits the control’s bounds
+  - selected
+  - focused
+
 ### Question
 - 의존 관계 역전 원칙
 - Insets
+- UIControlState
+  - rawValue (0 ~ 6)
