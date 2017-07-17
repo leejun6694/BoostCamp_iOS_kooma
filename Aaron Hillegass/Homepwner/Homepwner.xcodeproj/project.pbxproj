@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		729B2D601F1CE25D00B386B1 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B2D5F1F1CE25D00B386B1 /* ItemCell.swift */; };
 		72BD478A1F1A175D00CFE19B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD47891F1A175D00CFE19B /* AppDelegate.swift */; };
 		72BD478F1F1A175D00CFE19B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BD478D1F1A175D00CFE19B /* Main.storyboard */; };
 		72BD47911F1A175D00CFE19B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72BD47901F1A175D00CFE19B /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		729B2D5F1F1CE25D00B386B1 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		72BD47861F1A175D00CFE19B /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BD47891F1A175D00CFE19B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72BD478E1F1A175D00CFE19B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				72BD47891F1A175D00CFE19B /* AppDelegate.swift */,
 				72BD479B1F1A183500CFE19B /* ItemsViewController.swift */,
+				729B2D5F1F1CE25D00B386B1 /* ItemCell.swift */,
 				72BD479F1F1A1F0200CFE19B /* ItemStore.swift */,
 				72BD47A11F1A306500CFE19B /* Item.swift */,
 				72BD478D1F1A175D00CFE19B /* Main.storyboard */,
@@ -147,6 +150,7 @@
 				72BD479C1F1A183500CFE19B /* ItemsViewController.swift in Sources */,
 				72BD47A01F1A1F0200CFE19B /* ItemStore.swift in Sources */,
 				72BD478A1F1A175D00CFE19B /* AppDelegate.swift in Sources */,
+				729B2D601F1CE25D00B386B1 /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

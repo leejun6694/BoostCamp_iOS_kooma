@@ -65,23 +65,35 @@ class ItemViewController: UITableViewController {
 //        let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
         
         // 재사용 셀이나 새로운 셀을 얻는다
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        
+        // 선호하는 텍스트 크기로 라벨을 업데이트한다
+        cell.updateLabels()
         
         // 물품 배열의 n번째 있는 항목의 설명을 n과 row와 일치하는 셀의 텍스트로 설정한다
         // 이셀은 테이블 뷰의 n 번째 행에 나타난다
         if indexPath.row < itemStore.allItems.count {
             let item = itemStore.allItems[indexPath.row]
             
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+//            cell.textLabel?.text = item.name
+//            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+//            
+//            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+//            cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(20)
             
-            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
-            cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(20)
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
         }
         // 마지막 cell
         else {
-            cell.textLabel?.text = "No more items!"
-            cell.detailTextLabel?.text = ""
+//            cell.textLabel?.text = "No more items!"
+//            cell.detailTextLabel?.text = ""
+            
+            cell.nameLabel.text = "No more items!"
+            cell.serialNumberLabel.text = ""
+            cell.valueLabel.text = ""
         }
         
         cell.backgroundColor = .clear
@@ -173,8 +185,12 @@ class ItemViewController: UITableViewController {
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
         
-        let backView = UIImageView(image: #imageLiteral(resourceName: "Surfing"))
+        let backView = UIImageView(image: #imageLiteral(resourceName: "pastel"))
         self.tableView.backgroundView = backView
+        
+//        tableView.rowHeight = 65
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
 }

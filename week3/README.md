@@ -10,6 +10,7 @@
 ### Todo
 
 ### Study
+> Homepwner
 - initializer
   - 지정 initializer : 반드시 super class의 지정 initializer를 호출해야 함
   - convenience initializer : 반드시 같은 타입의 또 다른 initializer를 호출해야 함
@@ -36,6 +37,8 @@
 - ActionController
   - .alert : 계속 진행하기 위해 사용자의 결정이 필요한 중요 정보를 표시
   - .actionsheet : 사용자의 결정을 되돌리거나 그 동작이 중요하지 않은 정보를 표시
+- UITableViewAutomaticDimension
+  - rowHeight의 기본 값
 
 ### Question
 - 의존 관계 역전 원칙
