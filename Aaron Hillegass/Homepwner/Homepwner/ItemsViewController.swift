@@ -69,17 +69,22 @@ class ItemViewController: UITableViewController {
         
         // 물품 배열의 n번째 있는 항목의 설명을 n과 row와 일치하는 셀의 텍스트로 설정한다
         // 이셀은 테이블 뷰의 n 번째 행에 나타난다
-        if indexPath.row != itemStore.allItems.count {
+        if indexPath.row < itemStore.allItems.count {
             let item = itemStore.allItems[indexPath.row]
             
             cell.textLabel?.text = item.name
             cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            
+            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
+            cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(20)
         }
         // 마지막 cell
         else {
             cell.textLabel?.text = "No more items!"
             cell.detailTextLabel?.text = ""
         }
+        
+        cell.backgroundColor = .clear
         
         return cell
     }
@@ -101,7 +106,7 @@ class ItemViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             ac.addAction(cancelAction)
             
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (action) -> Void in
+            let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: { (action) -> Void in
                 // 저장소에서 그 항목을 제거한다
                 self.itemStore.removeItem(item: item)
                 
@@ -144,6 +149,16 @@ class ItemViewController: UITableViewController {
         }
     }
     
+    // cell 높이 변경
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row < itemStore.allItems.count {
+            return 60
+        }
+        else {
+            return 44
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         itemStore.moveItemAtIndex(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
@@ -157,6 +172,9 @@ class ItemViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        let backView = UIImageView(image: #imageLiteral(resourceName: "Surfing"))
+        self.tableView.backgroundView = backView
     }
     
 }
