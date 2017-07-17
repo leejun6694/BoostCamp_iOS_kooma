@@ -58,6 +58,11 @@ class ViewController: UIViewController {
         doButton.alpha = 1.0
         doButton.isHighlighted = false
         
+        doButton.setTitle("normal", for: .normal)
+        doButton.setTitleColor(.yellow, for: .normal)
+        doButton.setTitle("selected", for: .selected)
+        doButton.setTitleColor(.green, for: .selected)
+        
         if highlightedNumber == 1 {
             doButton.isSelected = true
             highlightedNumber += 1
