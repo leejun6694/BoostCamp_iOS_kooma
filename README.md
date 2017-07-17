@@ -36,7 +36,7 @@
 - [x] Chapter 10 - UITableView 편집하기
   - [x] Bronze - Delete 버튼 이름 변경하기
   - [x] Silver - 재정렬 막기
-  - [ ] Gold - 재정렬 완전히 막기
+  - [x] Gold - 재정렬 완전히 막기
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)

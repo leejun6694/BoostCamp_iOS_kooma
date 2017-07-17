@@ -124,6 +124,26 @@ class ItemViewController: UITableViewController {
         }
     }
     
+    // 특정 cell delete 막기
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if indexPath.row == itemStore.allItems.count {
+            return UITableViewCellEditingStyle.none
+        }
+        else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    // 특정 cell로 재정렬 막기
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if proposedDestinationIndexPath.row == itemStore.allItems.count {
+            return sourceIndexPath
+        }
+        else {
+            return proposedDestinationIndexPath
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         itemStore.moveItemAtIndex(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
