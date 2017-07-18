@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722996541F1DCFE000D95D28 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722996531F1DCFE000D95D28 /* MyButton.swift */; };
 		72BAB33C1F1D1B4E00B99B93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAB33B1F1D1B4E00B99B93 /* AppDelegate.swift */; };
 		72BAB33E1F1D1B4E00B99B93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BAB33D1F1D1B4E00B99B93 /* ViewController.swift */; };
 		72BAB3411F1D1B4E00B99B93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72BAB33F1F1D1B4E00B99B93 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		722996531F1DCFE000D95D28 /* MyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		72BAB3381F1D1B4E00B99B93 /* MakeButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakeButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BAB33B1F1D1B4E00B99B93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72BAB33D1F1D1B4E00B99B93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				72BAB33B1F1D1B4E00B99B93 /* AppDelegate.swift */,
 				72BAB33D1F1D1B4E00B99B93 /* ViewController.swift */,
+				722996531F1DCFE000D95D28 /* MyButton.swift */,
 				72BAB33F1F1D1B4E00B99B93 /* Main.storyboard */,
 				72BAB3421F1D1B4E00B99B93 /* Assets.xcassets */,
 				72BAB3441F1D1B4E00B99B93 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			files = (
 				72BAB33E1F1D1B4E00B99B93 /* ViewController.swift in Sources */,
 				72BAB33C1F1D1B4E00B99B93 /* AppDelegate.swift in Sources */,
+				722996541F1DCFE000D95D28 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +306,7 @@
 				72BAB34C1F1D1B4E00B99B93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
