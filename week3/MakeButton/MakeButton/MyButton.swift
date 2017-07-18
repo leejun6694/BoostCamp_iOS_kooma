@@ -15,11 +15,12 @@ extension UIControlState: Hashable {
     }
 }
 
-class MyButton: UIView {
+class MyButton: UIView, UIGestureRecognizerDelegate {
     
     // MARK: Properties
     
     var myLabel: UILabel?
+    var imageView: UIImageView?
     var buttonState: UIControlState = UIControlState()
     var isEnable: Bool = true {
         didSet {
@@ -28,6 +29,7 @@ class MyButton: UIView {
     }
     private var stateTitleDictionary: Dictionary = [UIControlState:String]()
     private var stateColorDictionary: Dictionary = [UIControlState:UIColor]()
+    private var stateImageDictionary: Dictionary = [UIControlState:UIImageView]()
     
     // MARK: init
     
@@ -37,10 +39,20 @@ class MyButton: UIView {
         self.myLabel = UILabel()
         self.myLabel?.text = "default"
         self.myLabel?.textAlignment = .center
+        imageView = UIImageView()
         self.buttonState = .normal
         self.addSubview(myLabel!)
+        self.addSubview(imageView!)
         
-        // size
+        // imgview size
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.translatesAutoresizingMaskIntoConstraints = false
+        imageView?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        imageView?.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        imageView?.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        imageView?.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        
+        // label size
         myLabel?.translatesAutoresizingMaskIntoConstraints = false
         myLabel?.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         myLabel?.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
@@ -64,20 +76,30 @@ class MyButton: UIView {
         updateColor()
     }
     
-//    func addTarget(_ target: Any?, action: Selector, event controlevent: UIControlEvents) {
-//        let gestureRecognizer = UITapGestureRecognizer()
-//        self.addGestureRecognizer(gestureRecognizer)
-//        
-//        switch controlevent {
-//        case UIControlEvents.touchUpInside:
-//            if gestureRecognizer.state == .ended {
-//                gestureRecognizer.addTarget(target!, action: action)
-//                
-//            }
-//        default :
-//            break
-//        }
-//    }
+    func setBackgroundImage(image: UIImageView, state: UIControlState) {
+        stateImageDictionary[state] = image
+        updateImage()
+    }
+    
+    func backgroundImage(state: UIControlState) -> UIImageView {
+        return stateImageDictionary[state]!
+    }
+    
+    func addTarget(_ target: Any?, action: Selector, event controlevent: UIControlEvents) {
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        
+        switch controlevent {
+        case UIControlEvents.touchUpInside :
+            tapGestureRecognizer.addTarget(target!, action: action)
+            tapGestureRecognizer.cancelsTouchesInView = false
+            
+            addGestureRecognizer(tapGestureRecognizer)
+        default :
+            break
+        }
+    }
+    
+    // MARK: private, override
     
     private func enableButton() {
         if self.isEnable == true {
@@ -106,6 +128,14 @@ class MyButton: UIView {
                 myLabel?.textColor = color
                 
                 break
+            }
+        }
+    }
+    
+    private func updateImage() {
+        for (state, image) in stateImageDictionary {
+            if buttonState == state {
+                self.imageView = image
             }
         }
     }

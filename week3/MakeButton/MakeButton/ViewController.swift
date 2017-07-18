@@ -14,11 +14,11 @@ class ViewController: UIViewController {
     
     var doButton: MyButton!
     var enableButton: MyButton!
+    var btn = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib
-        
         // create button
         doButton = MyButton(frame: CGRect(x: self.view.center.x - 100.0, y: self.view.center.y - 100.0, width: 200.0, height: 50.0))
         doButton.setTitle("normal", state: .normal)
@@ -36,11 +36,23 @@ class ViewController: UIViewController {
         enableButton.setTitleColor(.black, state: .normal)
         enableButton.setTitle("Enable the button", state: .selected)
         enableButton.setTitleColor(.black, state: .selected)
+        enableButton.addTarget(self, action: #selector(clickEnableButton(_:)), event: .touchUpInside)
         
         self.view.addSubview(doButton)
         self.view.addSubview(enableButton)
     }
 
+    func clickEnableButton(_ sender: AnyObject) {
+        if doButton.isEnable == true {
+            doButton.alpha = 0.5
+            doButton.isEnable = false
+        }
+        else {
+            doButton.alpha = 1.0
+            doButton.isEnable = true
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
