@@ -91,14 +91,6 @@ class MyButton: UIView {
     }
     
     private func updateTitle() {
-        // highlighted
-        if buttonState.contains(.highlighted) {
-            self.alpha = 0.5
-            myLabel?.text = stateTitleDictionary[.highlighted]
-            
-            return
-        }
-        
         for (state, title) in stateTitleDictionary {
             if buttonState == state {
                 myLabel?.text = title
@@ -109,16 +101,6 @@ class MyButton: UIView {
     }
     
     private func updateColor() {
-        // highlighted
-        if buttonState.contains(.highlighted) {
-            self.alpha = 0.5
-            myLabel?.textColor = stateColorDictionary[.highlighted]
-            
-            buttonState.remove(.highlighted)
-            
-            return
-        }
-        
         for (state, color) in stateColorDictionary {
             if buttonState == state {
                 myLabel?.textColor = color
@@ -129,7 +111,14 @@ class MyButton: UIView {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        buttonState = buttonState.union(.highlighted)
+        self.alpha = 0.5
+        
+        if buttonState == .selected {
+            buttonState = buttonState.union(.highlighted)
+        }
+        else {
+            buttonState = .highlighted
+        }
         
         updateTitle()
         updateColor()
@@ -138,12 +127,13 @@ class MyButton: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.alpha = 1.0
         
-        if buttonState == .normal {
-            buttonState = .selected
-        }
-        else {
+        if buttonState == UIControlState.selected.union(.highlighted) {
             buttonState = .normal
         }
+        else {
+            buttonState = .selected
+        }
+        
         updateTitle()
         updateColor()
     }

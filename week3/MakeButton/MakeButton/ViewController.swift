@@ -23,8 +23,10 @@ class ViewController: UIViewController {
         doButton = MyButton(frame: CGRect(x: self.view.center.x - 100.0, y: self.view.center.y - 100.0, width: 200.0, height: 50.0))
         doButton.setTitle("normal", state: .normal)
         doButton.setTitleColor(.yellow, state: .normal)
-        doButton.setTitle("highlighted", state: .highlighted)
+        doButton.setTitle("highlighted1", state: .highlighted)
         doButton.setTitleColor(.white, state: .highlighted)
+        doButton.setTitle("highlighted2", state: [.selected, .highlighted])
+        doButton.setTitleColor(.red, state: [.selected, .highlighted])
         doButton.setTitle("selected", state: .selected)
         doButton.setTitleColor(.green, state: .selected)
         doButton.backgroundColor = .black
