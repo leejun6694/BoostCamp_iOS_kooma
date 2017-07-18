@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         doButton.setTitle("selected", state: .selected)
         doButton.setTitleColor(.green, state: .selected)
         doButton.backgroundColor = .black
+        doButton.addTarget(self, action: #selector(clickDoButton(_:)), event: .touchUpInside)        
         
         enableButton = MyButton(frame: CGRect(x: self.view.center.x - 100.0, y: self.view.center.y - 30.0, width: 200.0, height: 50.0))
         enableButton.setTitle("Disable the button", state: .normal)
@@ -40,6 +41,10 @@ class ViewController: UIViewController {
         
         self.view.addSubview(doButton)
         self.view.addSubview(enableButton)
+    }
+    
+    func clickDoButton(_ sender: AnyObject) {
+        print("touch up inside")
     }
 
     func clickEnableButton(_ sender: AnyObject) {

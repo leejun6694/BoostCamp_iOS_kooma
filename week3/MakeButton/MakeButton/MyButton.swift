@@ -166,5 +166,7 @@ class MyButton: UIView, UIGestureRecognizerDelegate {
         
         updateTitle()
         updateColor()
+        
+        print("button tapped")
     }
 }
