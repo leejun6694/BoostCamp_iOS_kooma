@@ -49,7 +49,6 @@
 
 ### Question
 - 의존 관계 역전 원칙
-- Insets
 - UIControlState
   - rawValue (0 ~ 6)
 - Hashable
