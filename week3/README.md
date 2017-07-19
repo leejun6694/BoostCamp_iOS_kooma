@@ -8,6 +8,7 @@
 - [x] 스스로 만든 버튼을 로그인, 회원가입 화면에 적용해보기
 
 ### Todo
+- [ ] pull request 해결하기
 
 ### Study
 > Homepwner
