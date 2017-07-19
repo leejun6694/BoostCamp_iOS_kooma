@@ -8,7 +8,6 @@
 
 import UIKit
 
-/* 좋아요! Dictionary의 key로 사용하려면 Hashable 프로토콜을 준수해야하죠. 왜 그럴까요? */
 extension UIControlState: Hashable {
     static let all: [UIControlState] = [.normal, .selected, .disabled, .highlighted]
     public var hashValue: Int {
@@ -21,10 +20,8 @@ class MyButton: UIView, UIGestureRecognizerDelegate {
     // MARK: Properties
     
     var myLabel: UILabel?
-    /* UIControlState()로 생성된 기본값이 normal인지 모른다면 헷갈릴 수 있겠죠? 조금 더 명확히 써주는 것이 좋겠습니다 */
-    var buttonState: UIControlState = .normal
     var imageView: UIImageView?
-
+    var buttonState: UIControlState = UIControlState()
     var isEnable: Bool = true {
         didSet {
             enableButton()
