@@ -125,12 +125,13 @@ class ItemViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             ac.addAction(cancelAction)
             
-            let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: { (action) -> Void in
+            let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: { [unowned self, tableView] (action) -> Void in
                 // 저장소에서 그 항목을 제거한다
                 self.itemStore.removeItem(item: item)
                 
                 // 또한 애니메이션과 함께 테이블 뷰에서 그 행을 제거한다
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+//                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
             })
             ac.addAction(deleteAction)
             
@@ -140,12 +141,14 @@ class ItemViewController: UITableViewController {
     
     // 특정 cell 재정렬 막기
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.row < itemStore.allItems.count {
-            return true
-        }
-        else {
-            return false
-        }
+//        if indexPath.row < itemStore.allItems.count {
+//            return true
+//        }
+//        else {
+//            return false
+//        }
+        
+        return indexPath.row < itemStore.allItems.count
     }
     
     // 특정 cell delete 막기
