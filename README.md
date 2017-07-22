@@ -39,6 +39,12 @@
   - [x] Gold - 재정렬 완전히 막기
 - [x] Chapter 11 - UITableViewCell 하위 클래스 만들기
   - [x] Bronze - 셀 색상
+- [x] Chapter 12 - 스택 뷰
+  - [ ] Bronze - 추가 스택 뷰
+- [ ] Chapter 13 - UINavigationController
+  - [ ] Bronze - 숫자 패드 표시하기
+  - [ ] Silver - UITextField 사용자화
+  - [ ] Gold - 더 많은 뷰 컨트롤러 푸시하기
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
