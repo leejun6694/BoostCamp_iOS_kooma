@@ -12,13 +12,13 @@ class Item: NSObject {
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
-    var dateCreate: NSDate
+    var dateCreated: Date
     
     init(name: String, serialNumber: String?, valueInDollars: Int) {
         self.name = name
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
-        self.dateCreate = NSDate()
+        self.dateCreated = Date()
         
         super.init()
     }

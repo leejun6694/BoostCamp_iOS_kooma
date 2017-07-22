@@ -41,7 +41,7 @@
   - [x] Bronze - 셀 색상
 - [x] Chapter 12 - 스택 뷰
   - [ ] Bronze - 추가 스택 뷰
-- [ ] Chapter 13 - UINavigationController
+- [x] Chapter 13 - UINavigationController
   - [ ] Bronze - 숫자 패드 표시하기
   - [ ] Silver - UITextField 사용자화
   - [ ] Gold - 더 많은 뷰 컨트롤러 푸시하기

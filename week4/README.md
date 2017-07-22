@@ -8,11 +8,10 @@
 - [ ] 1 to 25
 
 ### Todo
-- [ ] Chapter 12 - 스택뷰
+- [x] Chapter 12 - 스택뷰
 
 ### Study
-> UINavigationController
-- drill-down interface
+> Stack View
 - Segue
   - UIStoryboardSegue
   - style : 어떻게 나타낼지
@@ -24,6 +23,13 @@
     - destination view controller
     - identifier
   - 세그웨이를 발생시킨 객체 (sender)
+
+> UINavigationController
+- drill-down interface
+- Navigation 컨트롤러 안에 내장된 뷰 컨트롤러에서 show 세그웨이를 호출할 때 목표 뷰 컨트롤러가 Navigation 컨트롤러의 뷰 컨트롤러의 스택 안으로 푸시
+- UINavigationController가 뷰들을 교환하기 직전에 viewWillDisappear(_:)와 viewWillAppear(_:) 메서드를 호출
+- UINavigationItem은 UIView의 하위 클래스가 아님
+  - title string or title view
 
 
 ### Question

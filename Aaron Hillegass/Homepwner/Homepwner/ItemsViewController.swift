@@ -14,6 +14,14 @@ class ItemViewController: UITableViewController {
     
     var itemStore: ItemStore!
     
+    // MARK: Initializer
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
+    }
+    
     // MARK: Functions
     
     @IBAction func addNewItem(sender: AnyObject) {
@@ -36,23 +44,23 @@ class ItemViewController: UITableViewController {
         }
     }
     
-    @IBAction func toggleEditingMode(sender: AnyObject) {
-        // 현재 편집 모드이면
-        if isEditing {
-            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
-            sender.setTitle("Edit", for: .normal)
-            
-            // 편집 모드를 끈다
-            setEditing(false, animated: true)
-        }
-        else {
-            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
-            sender.setTitle("Done", for: .normal)
-            
-            // 편집 모드로 들어간다
-            setEditing(true, animated: true)
-        }
-    }
+//    @IBAction func toggleEditingMode(sender: AnyObject) {
+//        // 현재 편집 모드이면
+//        if isEditing {
+//            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
+//            sender.setTitle("Edit", for: .normal)
+//            
+//            // 편집 모드를 끈다
+//            setEditing(false, animated: true)
+//        }
+//        else {
+//            // 사용자에게 상태를 알리기 위해 버튼의 텍스트를 변경한다
+//            sender.setTitle("Done", for: .normal)
+//            
+//            // 편집 모드로 들어간다
+//            setEditing(true, animated: true)
+//        }
+//    }
     
     // MARK: override
     
@@ -188,12 +196,12 @@ class ItemViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 상태 바의 높이를 얻는다
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
+//        // 상태 바의 높이를 얻는다
+//        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+//        
+//        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+//        tableView.contentInset = insets
+//        tableView.scrollIndicatorInsets = insets
         
         let backView = UIImageView(image: #imageLiteral(resourceName: "pastel"))
         self.tableView.backgroundView = backView
@@ -203,4 +211,24 @@ class ItemViewController: UITableViewController {
         tableView.estimatedRowHeight = 65
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 발생한 세그웨이가 "ShowItem" 세그웨이 이면
+        if segue.identifier == "ShowItem" {
+            
+            // 방금 어느 행이 눌렸는지 계산한다
+            if let row = tableView.indexPathForSelectedRow?.row {
+                
+                // 이 행에연결된 Item을 가져와서 전달한다
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
 }
