@@ -22,7 +22,7 @@ class PlayViewController: UIViewController {
     let RGBpoint: CGFloat = 255.0
     
     var gameButtonsStackView: UIStackView! = nil
-    let gameButtons: GameButton = GameButton()
+    let gameButton: GameButton = GameButton()
     
     // MARK: Draw
     
@@ -139,13 +139,23 @@ class PlayViewController: UIViewController {
         startButton.removeFromSuperview()
         
         gameButtonsStackView = UIStackView()
-        gameButtonsStackView = gameButtons
+        gameButtonsStackView = gameButton
         playView.addSubview(gameButtonsStackView)
+        
         gameButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         gameButtonsStackView.topAnchor.constraint(equalTo: playView.topAnchor).isActive = true
         gameButtonsStackView.bottomAnchor.constraint(equalTo: playView.bottomAnchor).isActive = true
         gameButtonsStackView.leadingAnchor.constraint(equalTo: playView.leadingAnchor).isActive = true
         gameButtonsStackView.trailingAnchor.constraint(equalTo: playView.trailingAnchor).isActive = true
+        
+        var gameNumbers = [Int](1...25)
+        
+        for index in 0...24 {
+            let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
+            
+            gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
+            gameNumbers.remove(at: random)
+        }
     }
     
     // MARK: override

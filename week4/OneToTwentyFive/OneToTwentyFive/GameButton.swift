@@ -14,6 +14,7 @@ class GameButton: UIStackView {
     
     var horizontalStacks = [UIStackView]()
     var gameButtons = [UIButton]()
+    var currentNumber: Int = 1
     let RGBpoint: CGFloat = 255.0
     
     // MARK: Initializer
@@ -21,7 +22,6 @@ class GameButton: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         createGameButtons()
-        print("hi")
     }
     
     required init(coder: NSCoder) {
@@ -31,16 +31,22 @@ class GameButton: UIStackView {
     
     // MARK: Functions
     
+    func clickGameButton(_ sender: UIButton) {
+        if Int((sender.titleLabel?.text)!)! == currentNumber {
+            currentNumber = currentNumber + 1
+            sender.alpha = 0.0
+        }
+    }
+    
     private func createGameButtons() {
         self.axis = .vertical
+        self.distribution = .fillEqually
+        self.spacing = 8.0
         
         for _ in 0...4 {
             let stackView = UIStackView()
             stackView.axis = .horizontal
             addArrangedSubview(stackView)
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-            stackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2).isActive = true
             
             for _ in 0...4 {
                 let button = UIButton()
@@ -48,12 +54,12 @@ class GameButton: UIStackView {
                 button.setTitle("-", for: .normal)
                 button.setTitleColor(.white, for: .normal)
                 button.backgroundColor = UIColor(red: 71.0/RGBpoint, green: 86.0/RGBpoint, blue: 136.0/RGBpoint, alpha: 1.0)
-                stackView.addArrangedSubview(button)
-                gameButtons.append(button)
+                button.addTarget(self, action: #selector(clickGameButton(_:)), for: .touchUpInside)
                 
-                button.translatesAutoresizingMaskIntoConstraints = false
-                button.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.2).isActive = true
-                button.heightAnchor.constraint(equalTo: stackView.heightAnchor).isActive = true
+                stackView.addArrangedSubview(button)
+                stackView.distribution = .fillEqually
+                stackView.spacing = 8.0
+                gameButtons.append(button)
             }
         }
     }
