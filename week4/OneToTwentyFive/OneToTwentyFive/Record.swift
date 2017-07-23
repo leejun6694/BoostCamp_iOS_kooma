@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Record {
+class Record: NSObject {
     
     var name: String
     var record: Int
@@ -18,5 +18,7 @@ class Record {
         self.name = name
         self.record = record
         self.dateCreated = Date()
+        
+        super.init()
     }
 }

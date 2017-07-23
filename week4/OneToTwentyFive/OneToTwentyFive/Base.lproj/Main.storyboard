@@ -23,7 +23,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="z5C-wB-FTU" kind="show" identifier="segueToPlay" id="p4D-y3-wjD"/>
+                        <segue destination="z5C-wB-FTU" kind="show" identifier="segueFromStartToPlay" id="p4D-y3-wjD"/>
+                        <segue destination="myO-Dd-fgQ" kind="show" identifier="segueFromStartToHistory" id="X9q-jq-XO1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -42,10 +43,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="myO-Dd-fgQ" kind="show" identifier="segueFromPlayToHistory" id="Ciy-y4-TxZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOd-F9-hfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="783" y="37"/>
+            <point key="canvasLocation" x="863" y="-329"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="QII-sa-5BY">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bTO-3P-W88" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="myO-Dd-fgQ" customClass="HistoryViewController" customModule="OneToTwentyFive" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LNw-vo-o8L">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RecordCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordCell" id="cX4-Cr-DyF" customClass="RecordCell" customModule="OneToTwentyFive" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cX4-Cr-DyF" id="aLX-L4-D9r">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="myO-Dd-fgQ" id="wsW-Lj-ogI"/>
+                            <outlet property="delegate" destination="myO-Dd-fgQ" id="xzd-uI-9p1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="862" y="387"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="X9q-jq-XO1"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -12,10 +12,11 @@ class PlayViewController: UIViewController {
     
     // MARK: Properties
     
+//    var maxRecord: Int = 360000
     let maxLabel: UILabel! = UILabel()
     let maxRecordLabel: UILabel! = UILabel()
     let currentRecordLabel: UILabel! = UILabel()
-    var startTime = 1
+    var recordTime = 1
     var currentTimer: Timer!
     let playView: UIView! = UIView()
     let startButton: UIButton = UIButton()
@@ -25,7 +26,9 @@ class PlayViewController: UIViewController {
     let RGBpoint: CGFloat = 255.0
     
     var gameButtonsStackView: UIStackView! = nil
-    let gameButton: GameButton = GameButton()
+    var gameButton: GameButton = GameButton()
+    
+    var recordStore: RecordStore!
     
     // MARK: Draw
     
@@ -103,6 +106,7 @@ class PlayViewController: UIViewController {
         homeButton.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45.0).isActive = true
         homeButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         homeButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        
         homeButton.addTarget(self, action: #selector(clickHomeButton(_:)), for: .touchUpInside)
     }
     
@@ -118,6 +122,8 @@ class PlayViewController: UIViewController {
         historyButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         historyButton.widthAnchor.constraint(equalTo: homeButton.widthAnchor).isActive = true
         historyButton.leadingAnchor.constraint(equalTo: homeButton.trailingAnchor).isActive = true
+        
+        historyButton.addTarget(self, action: #selector(clickHistoryButton(_:)), for: .touchUpInside)
     }
     
     func updateView() {
@@ -135,16 +141,20 @@ class PlayViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func clickHistoryButton(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "segueFromPlayToHistory", sender: self)
+    }
+    
     func startTimer() {
         currentTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     func updateTimer() {
-        startTime += 1
+        recordTime += 1
         
-        let minute = startTime / 6000
-        let second = (startTime % 6000) / 100
-        let miliSecond = (startTime % 6000) % 100
+        let minute = recordTime / 6000
+        let second = (recordTime % 6000) / 100
+        let miliSecond = (recordTime % 6000) % 100
         currentRecordLabel.text = String(format: "%02i:%02i:%02i", minute, second, miliSecond)
     }
     
@@ -152,6 +162,9 @@ class PlayViewController: UIViewController {
         if Int((sender.titleLabel?.text)!)! == currentNumber {
             currentNumber = currentNumber + 1
             sender.alpha = 0.0
+        }
+        else {
+            recordTime = recordTime + 150
         }
         
         if currentNumber == 26 {
@@ -161,6 +174,10 @@ class PlayViewController: UIViewController {
     
     func clickLastButton() {
         currentTimer.invalidate()
+        historyButton.isEnabled = true
+        historyButton.titleLabel?.alpha = 1.0
+        gameButton.removeFromSuperview()
+        createStartButton()
         
         let alertTitle = "Clear!"
         let alertMessage = "Enter your name"
@@ -168,10 +185,23 @@ class PlayViewController: UIViewController {
         alert.addTextField(configurationHandler: configurationTextField(textField:))
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+            if let recordName = alert.textFields?[0] {
+                self.recordStore.createRecord(name: recordName.text ?? "", record: self.recordTime)
+                
+                self.initialGame()
+            }
+        })
         alert.addAction(okAction)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    func initialGame() {
+        self.currentNumber = 1
+        for index in 0...24 {
+            self.gameButton.gameButtons[index].alpha = 1.0
+        }
     }
     
     func configurationTextField(textField: UITextField) {
@@ -200,7 +230,7 @@ class PlayViewController: UIViewController {
             let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
             
             gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
-            gameButton.gameButtons[index].addTarget(self, action: #selector(clickGameButton(_:)), for: .touchUpInside)
+            gameButton.gameButtons[index].addTarget(self, action: #selector(clickGameButton(_:)), for: .touchDown)
             gameNumbers.remove(at: random)
         }
         
@@ -213,5 +243,12 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         
         updateView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueFromPlayToHistory" {
+            let destination = segue.destination as! HistoryViewController
+            destination.recordStore = self.recordStore
+        }
     }
 }

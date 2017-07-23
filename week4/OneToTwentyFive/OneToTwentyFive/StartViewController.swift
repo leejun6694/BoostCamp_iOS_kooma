@@ -17,6 +17,8 @@ class StartViewController: UIViewController {
     let historyButton: UIButton! = UIButton()
     let RGBpoint:CGFloat = 255.0
     
+    var recordStore: RecordStore!
+    
     // MARK: Draw
     
     func createHomeLabel() {
@@ -43,6 +45,7 @@ class StartViewController: UIViewController {
         playButton.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 8.0).isActive = true
         playButton.leadingAnchor.constraint(equalTo: homeLabel.leadingAnchor).isActive = true
         playButton.heightAnchor.constraint(equalTo: homeLabel.heightAnchor).isActive = true
+        
         playButton.addTarget(self, action: #selector(clickPlayButton(_:)), for: .touchUpInside)
     }
     
@@ -58,6 +61,8 @@ class StartViewController: UIViewController {
         historyButton.heightAnchor.constraint(equalTo: playButton.heightAnchor).isActive = true
         historyButton.widthAnchor.constraint(equalTo: playButton.widthAnchor).isActive = true
         historyButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 8.0).isActive = true
+        
+        historyButton.addTarget(self, action: #selector(clickHistoryButton(_:)), for: .touchUpInside)
     }
     
     func updateView() {
@@ -69,7 +74,11 @@ class StartViewController: UIViewController {
     // MARK: Action
     
     func clickPlayButton(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "segueToPlay", sender: self)
+        self.performSegue(withIdentifier: "segueFromStartToPlay", sender: self)
+    }
+    
+    func clickHistoryButton(_ sender: AnyObject) {
+        self.performSegue(withIdentifier: "segueFromStartToHistory", sender: self)
     }
     
     // MARK: override
@@ -81,6 +90,13 @@ class StartViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "segueFromStartToPlay" {
+            let destinationController = segue.destination as! PlayViewController
+            destinationController.recordStore = self.recordStore
+        }
+        else if segue.identifier == "segueFromStartToHistory" {
+            let destinationController = segue.destination as! HistoryViewController
+            destinationController.recordStore = self.recordStore
+        }
     }
 }

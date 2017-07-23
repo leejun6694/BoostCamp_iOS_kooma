@@ -16,6 +16,8 @@
 		72E582DE1F237A6E00FBC817 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E582DD1F237A6E00FBC817 /* GameButton.swift */; };
 		72E582E81F24836A00FBC817 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E582E71F24836A00FBC817 /* Record.swift */; };
 		72E582EA1F2483B900FBC817 /* RecordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E582E91F2483B900FBC817 /* RecordStore.swift */; };
+		72E582EC1F24A03400FBC817 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E582EB1F24A03400FBC817 /* HistoryViewController.swift */; };
+		72E582F01F24E53900FBC817 /* RecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E582EF1F24E53900FBC817 /* RecordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		72E582DD1F237A6E00FBC817 /* GameButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 		72E582E71F24836A00FBC817 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		72E582E91F2483B900FBC817 /* RecordStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordStore.swift; sourceTree = "<group>"; };
+		72E582EB1F24A03400FBC817 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		72E582EF1F24E53900FBC817 /* RecordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				728EBE341F2264AF00EFB937 /* StartViewController.swift */,
 				7218F3941F2325F9002D79EF /* PlayViewController.swift */,
 				72E582DD1F237A6E00FBC817 /* GameButton.swift */,
+				72E582EB1F24A03400FBC817 /* HistoryViewController.swift */,
+				72E582EF1F24E53900FBC817 /* RecordCell.swift */,
 				72E582E91F2483B900FBC817 /* RecordStore.swift */,
 				72E582E71F24836A00FBC817 /* Record.swift */,
 				728EBE261F2263A800EFB937 /* Main.storyboard */,
@@ -152,8 +158,10 @@
 				728EBE231F2263A800EFB937 /* AppDelegate.swift in Sources */,
 				72E582DE1F237A6E00FBC817 /* GameButton.swift in Sources */,
 				72E582E81F24836A00FBC817 /* Record.swift in Sources */,
+				72E582F01F24E53900FBC817 /* RecordCell.swift in Sources */,
 				7218F3951F2325F9002D79EF /* PlayViewController.swift in Sources */,
 				72E582EA1F2483B900FBC817 /* RecordStore.swift in Sources */,
+				72E582EC1F24A03400FBC817 /* HistoryViewController.swift in Sources */,
 				728EBE351F2264AF00EFB937 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,8 +10,23 @@ import UIKit
 
 class RecordStore {
     
-    var recordStore = [Record]()
+    // MARK: Properties
     
-    func createRecord() {
+    var allRecords = [Record]()
+    
+    // MARK: Functions
+    
+    func createRecord(name: String, record: Int) {
+        let newRecord = Record(name: name, record: record)
+        allRecords.append(newRecord)
+        
+//        let userDefault = UserDefaults.standard
+//        userDefault.set(newRecord, forKey: "\(allRecords.count)")
+    }
+    
+    func removeRecord(record: Record) {
+        if let index = allRecords.index(of: record) {
+            allRecords.remove(at: index)
+        }
     }
 }
