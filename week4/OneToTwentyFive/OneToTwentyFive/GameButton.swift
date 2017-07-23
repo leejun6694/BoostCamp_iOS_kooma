@@ -14,7 +14,6 @@ class GameButton: UIStackView {
     
     var horizontalStacks = [UIStackView]()
     var gameButtons = [UIButton]()
-    var currentNumber: Int = 1
     let RGBpoint: CGFloat = 255.0
     
     // MARK: Initializer
@@ -30,13 +29,6 @@ class GameButton: UIStackView {
     }
     
     // MARK: Functions
-    
-    func clickGameButton(_ sender: UIButton) {
-        if Int((sender.titleLabel?.text)!)! == currentNumber {
-            currentNumber = currentNumber + 1
-            sender.alpha = 0.0
-        }
-    }
     
     private func createGameButtons() {
         self.axis = .vertical
@@ -54,7 +46,6 @@ class GameButton: UIStackView {
                 button.setTitle("-", for: .normal)
                 button.setTitleColor(.white, for: .normal)
                 button.backgroundColor = UIColor(red: 71.0/RGBpoint, green: 86.0/RGBpoint, blue: 136.0/RGBpoint, alpha: 1.0)
-                button.addTarget(self, action: #selector(clickGameButton(_:)), for: .touchUpInside)
                 
                 stackView.addArrangedSubview(button)
                 stackView.distribution = .fillEqually

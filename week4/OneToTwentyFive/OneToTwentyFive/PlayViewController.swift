@@ -15,8 +15,11 @@ class PlayViewController: UIViewController {
     let maxLabel: UILabel! = UILabel()
     let maxRecordLabel: UILabel! = UILabel()
     let currentRecordLabel: UILabel! = UILabel()
+    var startTime = 1
+    var currentTimer: Timer!
     let playView: UIView! = UIView()
     let startButton: UIButton = UIButton()
+    var currentNumber: Int = 1
     let homeButton: UIButton = UIButton()
     let historyButton: UIButton = UIButton()
     let RGBpoint: CGFloat = 255.0
@@ -132,6 +135,49 @@ class PlayViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    func startTimer() {
+        currentTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    func updateTimer() {
+        startTime += 1
+        
+        let minute = startTime / 6000
+        let second = (startTime % 6000) / 100
+        let miliSecond = (startTime % 6000) % 100
+        currentRecordLabel.text = String(format: "%02i:%02i:%02i", minute, second, miliSecond)
+    }
+    
+    func clickGameButton(_ sender: UIButton) {
+        if Int((sender.titleLabel?.text)!)! == currentNumber {
+            currentNumber = currentNumber + 1
+            sender.alpha = 0.0
+        }
+        
+        if currentNumber == 26 {
+            clickLastButton()
+        }
+    }
+    
+    func clickLastButton() {
+        currentTimer.invalidate()
+        
+        let alertTitle = "Clear!"
+        let alertMessage = "Enter your name"
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        alert.addTextField(configurationHandler: configurationTextField(textField:))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func configurationTextField(textField: UITextField) {
+        textField.placeholder = "Enter your name"
+    }
+    
     func clickStartButton(_ sender: AnyObject) {
         historyButton.isEnabled = false
         historyButton.titleLabel!.alpha = 0.5
@@ -154,8 +200,11 @@ class PlayViewController: UIViewController {
             let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
             
             gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
+            gameButton.gameButtons[index].addTarget(self, action: #selector(clickGameButton(_:)), for: .touchUpInside)
             gameNumbers.remove(at: random)
         }
+        
+        startTimer()
     }
     
     // MARK: override
