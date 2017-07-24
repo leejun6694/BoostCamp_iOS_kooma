@@ -67,3 +67,8 @@
   - [x] Check Password
 > [MakeButton](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week3/MakeButton)
   - [x] normal, highlighted, selected, disabled
+> [1 to 25](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/week4/OneToTwentyFive)
+  - [x] Create Game
+  - [x] Delete history
+  - [ ] Animation
+  - [x] Rotation
