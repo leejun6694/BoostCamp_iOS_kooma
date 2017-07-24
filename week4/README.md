@@ -9,7 +9,7 @@
 
 ### Todo
 - [x] Chapter 12 - 스택뷰
-- [ ] tableView 하단 버튼, 최고기록 갱신, 생성날짜
+- [x] tableView 하단 버튼, 최고기록 갱신, 생성날짜
 
 ### Study
 > Stack View
