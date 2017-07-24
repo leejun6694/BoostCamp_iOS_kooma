@@ -21,6 +21,14 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     let RGBpoint: CGFloat = 255.0
     
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        
+        return formatter
+    }()
+    
     // MARK: Draw
     
     func createTableView() {
@@ -106,6 +114,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let miliSecond = (recordItem.record % 6000) % 100
         cell.recordLabel.text = String(format: "%02i:%02i:%02i", minute, second, miliSecond)
         cell.nameLabel.text = recordItem.name
+        cell.dateCreatedLabel.text = "(" + dateFormatter.string(from: recordItem.dateCreated) + ")"
         
         if recordItem.record < recordStore.maxRecord.record {
             recordStore.maxRecord.record = recordItem.record
@@ -114,6 +123,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let record = recordStore.allRecords[indexPath.row]
+            
+            recordStore.removeRecord(record: record)
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 
     // MARK: override

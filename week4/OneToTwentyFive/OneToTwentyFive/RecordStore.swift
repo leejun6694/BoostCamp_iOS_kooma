@@ -20,20 +20,28 @@ class RecordStore {
     func createRecord(newRecord: Record) {
         allRecords.append(newRecord)
         
-        updateRecord(record: newRecord)
+        updateRecord()
     }
     
     func removeRecord(record: Record) {
         if let index = allRecords.index(of: record) {
             allRecords.remove(at: index)
         }
+        
+        updateRecord()
     }
     
-    func updateRecord(record: Record) {
-        if record.record < maxRecord.record {
-            maxRecord.record = record.record
-            maxRecord.name = record.name
-            maxRecord.dateCreated = record.dateCreated
+    func updateRecord() {
+        allRecords.sort { $0.record < $1.record }
+        
+        if allRecords.count == 0 {
+            maxRecord.name = "- --:--:--"
+            maxRecord.record = 360000
+        }
+        else {
+            maxRecord.name = allRecords[0].name
+            maxRecord.record = allRecords[0].record
+            maxRecord.dateCreated = allRecords[0].dateCreated
         }
     }
 }

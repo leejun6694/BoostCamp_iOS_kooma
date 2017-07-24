@@ -168,7 +168,7 @@ class PlayViewController: UIViewController {
             recordTime = recordTime + 150
         }
         
-        if currentNumber == 26 {
+        if currentNumber == 3 {
             clickLastButton()
         }
     }
@@ -184,11 +184,13 @@ class PlayViewController: UIViewController {
         let alertMessage = "Enter your name"
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addTextField(configurationHandler: configurationTextField(textField:))
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
+        
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             if let recordName = alert.textFields?[0] {
-                self.newRecord = Record(name: recordName.text ?? "", record: self.recordTime)
+                self.newRecord = Record(name: recordName.text ?? "default", record: self.recordTime)
                 self.recordStore.createRecord(newRecord: self.newRecord)
                 self.updateMaxRecordLabel()
                 
@@ -207,6 +209,7 @@ class PlayViewController: UIViewController {
         }
         
         recordTime = 0
+        currentRecordLabel.text = "00:00:00"
     }
     
     func configurationTextField(textField: UITextField) {
@@ -242,14 +245,27 @@ class PlayViewController: UIViewController {
         startTimer()
     }
     
-    private func updateMaxRecordLabel() {
-        let minute = recordStore.maxRecord.record / 6000
-        let second = (recordStore.maxRecord.record % 6000) / 100
-        let miliSecond = (recordStore.maxRecord.record % 6000) % 100
-        maxRecordLabel.text = "\(recordStore.maxRecord.name) " + String(format: "%02i:%02i:%02i", minute, second, miliSecond)
+    private func updateMaxRecordLabel() {        
+        if recordStore.allRecords.count == 0 {
+            maxRecordLabel.text = "- --:--:--"
+        }
+        else {
+            recordStore.updateRecord()
+            
+            let minute = recordStore.maxRecord.record / 6000
+            let second = (recordStore.maxRecord.record % 6000) / 100
+            let miliSecond = (recordStore.maxRecord.record % 6000) % 100
+            maxRecordLabel.text = "\(recordStore.maxRecord.name) " + String(format: "%02i:%02i:%02i", minute, second, miliSecond)
+        }
     }
     
     // MARK: override
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateMaxRecordLabel()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -44,7 +44,7 @@ class RecordCell: UITableViewCell {
         self.addSubview(dateCreatedLabel)
         
         dateCreatedLabel.translatesAutoresizingMaskIntoConstraints = false
-        dateCreatedLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor).isActive = true
+        dateCreatedLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 8).isActive = true
         dateCreatedLabel.topAnchor.constraint(equalTo: nameLabel.topAnchor).isActive = true
         dateCreatedLabel.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
     }
