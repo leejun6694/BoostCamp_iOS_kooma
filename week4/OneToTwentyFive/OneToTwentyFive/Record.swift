@@ -24,17 +24,17 @@ class Record: NSObject, NSCoding {
     
     // MARK: Archiving
     
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(name, forKey: "name")
-        aCoder.encode(dateCreated, forKey: "dateCreated")
-        aCoder.encode(record, forKey: "record")
-    }
-    
     required init(coder aDecoder: NSCoder) {
         name = aDecoder.decodeObject(forKey: "name") as! String
         dateCreated = aDecoder.decodeObject(forKey: "dateCreated") as! Date
         record = aDecoder.decodeInteger(forKey: "record")
         
         super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(dateCreated, forKey: "dateCreated")
+        aCoder.encode(record, forKey: "record")
     }
 }

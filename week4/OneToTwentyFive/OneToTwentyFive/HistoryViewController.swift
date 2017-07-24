@@ -13,6 +13,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Properties
 
     var recordStore: RecordStore!
+    let headerLabel: UILabel! = UILabel()
     let footerView: UIView! = UIView()
     let tableView: UITableView! = UITableView()
     let closeButton = UIButton()
@@ -35,10 +36,25 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         self.view.addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45).isActive = true
+    }
+    
+    func createHeaderLabel() {
+        headerLabel.text = "HISTORY"
+        headerLabel.textColor = UIColor(red: 111.0/RGBpoint, green: 167.0/RGBpoint, blue: 145.0/RGBpoint, alpha: 1.0)
+        headerLabel.textAlignment = .center
+        headerLabel.font = UIFont(name: headerLabel.font.fontName, size: 30.0)
+        self.view.addSubview(headerLabel)
+        
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
+        headerLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        headerLabel.bottomAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
+        
     }
     
     func createFooterView() {
@@ -86,6 +102,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func updateView() {
         createTableView()
+        createHeaderLabel()
         createFooterView()
     }
     
@@ -155,12 +172,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
         
         updateView()
         
