@@ -168,7 +168,7 @@ class PlayViewController: UIViewController {
             recordTime = recordTime + 150
         }
         
-        if currentNumber == 3 {
+        if currentNumber == 26 {
             clickLastButton()
         }
     }
