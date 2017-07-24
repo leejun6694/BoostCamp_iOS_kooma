@@ -13,20 +13,27 @@ class RecordStore {
     // MARK: Properties
     
     var allRecords = [Record]()
+    var maxRecord: Record! = Record(name: "default", record: 360000)
     
     // MARK: Functions
     
-    func createRecord(name: String, record: Int) {
-        let newRecord = Record(name: name, record: record)
+    func createRecord(newRecord: Record) {
         allRecords.append(newRecord)
         
-//        let userDefault = UserDefaults.standard
-//        userDefault.set(newRecord, forKey: "\(allRecords.count)")
+        updateRecord(record: newRecord)
     }
     
     func removeRecord(record: Record) {
         if let index = allRecords.index(of: record) {
             allRecords.remove(at: index)
+        }
+    }
+    
+    func updateRecord(record: Record) {
+        if record.record < maxRecord.record {
+            maxRecord.record = record.record
+            maxRecord.name = record.name
+            maxRecord.dateCreated = record.dateCreated
         }
     }
 }

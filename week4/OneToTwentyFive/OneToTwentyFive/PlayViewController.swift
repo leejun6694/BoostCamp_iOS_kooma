@@ -11,8 +11,7 @@ import UIKit
 class PlayViewController: UIViewController {
     
     // MARK: Properties
-    
-//    var maxRecord: Int = 360000
+
     let maxLabel: UILabel! = UILabel()
     let maxRecordLabel: UILabel! = UILabel()
     let currentRecordLabel: UILabel! = UILabel()
@@ -29,6 +28,7 @@ class PlayViewController: UIViewController {
     var gameButton: GameButton = GameButton()
     
     var recordStore: RecordStore!
+    var newRecord: Record!
     
     // MARK: Draw
     
@@ -146,6 +146,7 @@ class PlayViewController: UIViewController {
     }
     
     func startTimer() {
+//        currentTimer = Timer()
         currentTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -187,7 +188,9 @@ class PlayViewController: UIViewController {
         alert.addAction(cancelAction)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
             if let recordName = alert.textFields?[0] {
-                self.recordStore.createRecord(name: recordName.text ?? "", record: self.recordTime)
+                self.newRecord = Record(name: recordName.text ?? "", record: self.recordTime)
+                self.recordStore.createRecord(newRecord: self.newRecord)
+                self.updateMaxRecordLabel()
                 
                 self.initialGame()
             }
@@ -202,6 +205,8 @@ class PlayViewController: UIViewController {
         for index in 0...24 {
             self.gameButton.gameButtons[index].alpha = 1.0
         }
+        
+        recordTime = 0
     }
     
     func configurationTextField(textField: UITextField) {
@@ -235,6 +240,13 @@ class PlayViewController: UIViewController {
         }
         
         startTimer()
+    }
+    
+    private func updateMaxRecordLabel() {
+        let minute = recordStore.maxRecord.record / 6000
+        let second = (recordStore.maxRecord.record % 6000) / 100
+        let miliSecond = (recordStore.maxRecord.record % 6000) % 100
+        maxRecordLabel.text = "\(recordStore.maxRecord.name) " + String(format: "%02i:%02i:%02i", minute, second, miliSecond)
     }
     
     // MARK: override

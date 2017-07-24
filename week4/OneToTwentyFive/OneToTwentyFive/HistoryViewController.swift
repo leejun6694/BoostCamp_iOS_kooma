@@ -8,11 +8,76 @@
 
 import UIKit
 
-class HistoryViewController: UITableViewController {
+class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Properties
 
     var recordStore: RecordStore!
+    let footerView: UIView! = UIView()
+    let tableView: UITableView! = UITableView()
+    let closeButton = UIButton()
+    let resetButton = UIButton()
+    var recordCell: RecordCell! = RecordCell()
+    
+    let RGBpoint: CGFloat = 255.0
+    
+    // MARK: Draw
+    
+    func createTableView() {
+        self.view.addSubview(tableView)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45).isActive = true
+    }
+    
+    func createFooterView() {
+        self.view.addSubview(footerView)
+        
+        footerView.translatesAutoresizingMaskIntoConstraints = false
+        footerView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45).isActive = true
+        footerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        footerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        footerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        createCloseButton()
+        createResetButton()        
+    }
+    
+    func createCloseButton() {
+        closeButton.setTitle("Close", for: .normal)
+        closeButton.setTitleColor(.white, for: .normal)
+        closeButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 125.0/RGBpoint, blue: 104.0/RGBpoint, alpha: 1.0)
+        self.footerView.addSubview(closeButton)
+        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
+        closeButton.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
+        closeButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
+        
+        closeButton.addTarget(self, action: #selector(clickCloseButton(_:)), for: .touchUpInside)
+    }
+    
+    func createResetButton() {
+        resetButton.setTitle("Reset", for: .normal)
+        resetButton.setTitleColor(.white, for: .normal)
+        resetButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 125.0/RGBpoint, blue: 104.0/RGBpoint, alpha: 1.0)
+        self.footerView.addSubview(resetButton)
+        
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
+        resetButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
+        resetButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
+        resetButton.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor).isActive = true
+        resetButton.widthAnchor.constraint(equalTo: closeButton.widthAnchor).isActive = true
+    }
+    
+    func updateView() {
+        createTableView()
+        createFooterView()
+    }
     
     // MARK: Actions
     
@@ -20,23 +85,14 @@ class HistoryViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: override
+    // MARK: Delegate
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        
-        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
-        tableView.contentInset = insets
-        tableView.scrollIndicatorInsets = insets
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recordStore.allRecords.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        tableView.register(RecordCell.self, forCellReuseIdentifier: "RecordCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath) as! RecordCell
         let recordItem = recordStore.allRecords[indexPath.row]
         
@@ -51,11 +107,30 @@ class HistoryViewController: UITableViewController {
         cell.recordLabel.text = String(format: "%02i:%02i:%02i", minute, second, miliSecond)
         cell.nameLabel.text = recordItem.name
         
+        if recordItem.record < recordStore.maxRecord.record {
+            recordStore.maxRecord.record = recordItem.record
+            recordStore.maxRecord.name = recordItem.name
+            recordStore.maxRecord.dateCreated = recordItem.dateCreated
+        }
+        
         return cell
     }
+
+    // MARK: override
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = insets
+        tableView.scrollIndicatorInsets = insets
+        
+        updateView()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    
     }
-    
 }
