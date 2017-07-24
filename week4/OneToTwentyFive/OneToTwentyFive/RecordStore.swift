@@ -15,6 +15,26 @@ class RecordStore {
     var allRecords = [Record]()
     var maxRecord: Record! = Record(name: "default", record: 360000)
     
+    let recordArchiveURL: NSURL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        
+        return documentDirectory.appendingPathComponent("records.archive") as NSURL
+    }()
+    
+    // MARK: Archiving
+    
+    func saveChanges() -> Bool {
+        print("Saving items to: \(recordArchiveURL.path!)")
+        return NSKeyedArchiver.archiveRootObject(allRecords, toFile: recordArchiveURL.path!)
+    }
+    
+    init() {
+        if let archivedRecords = NSKeyedUnarchiver.unarchiveObject(withFile: recordArchiveURL.path!) as? [Record] {
+            allRecords = archivedRecords
+        }
+    }
+    
     // MARK: Functions
     
     func createRecord(newRecord: Record) {
