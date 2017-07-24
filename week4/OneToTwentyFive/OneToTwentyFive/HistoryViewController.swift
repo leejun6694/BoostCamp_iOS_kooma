@@ -80,6 +80,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         resetButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
         resetButton.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor).isActive = true
         resetButton.widthAnchor.constraint(equalTo: closeButton.widthAnchor).isActive = true
+        
+        resetButton.addTarget(self, action: #selector(clickResetButton(_:)), for: .touchUpInside)
     }
     
     func updateView() {
@@ -91,6 +93,20 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func clickCloseButton(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func clickResetButton(_ sender: AnyObject) {
+        let alertTitle = "REALLY?"
+        let alert = UIAlertController(title: alertTitle, message: "", preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
+        alert.addAction(noAction)
+        let yesAction = UIAlertAction(title: "YES", style: .destructive, handler: { (action) -> Void in
+            self.recordStore.allRecords = []
+            self.tableView.reloadData()
+        })
+        alert.addAction(yesAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: Delegate

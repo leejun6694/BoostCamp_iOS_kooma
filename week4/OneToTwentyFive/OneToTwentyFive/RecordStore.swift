@@ -24,15 +24,15 @@ class RecordStore {
     
     // MARK: Archiving
     
-    func saveChanges() -> Bool {
-        print("Saving items to: \(recordArchiveURL.path!)")
-        return NSKeyedArchiver.archiveRootObject(allRecords, toFile: recordArchiveURL.path!)
-    }
-    
     init() {
         if let archivedRecords = NSKeyedUnarchiver.unarchiveObject(withFile: recordArchiveURL.path!) as? [Record] {
             allRecords = archivedRecords
+            updateRecord()
         }
+    }
+    
+    func saveChanges() -> Bool {
+        return NSKeyedArchiver.archiveRootObject(allRecords, toFile: recordArchiveURL.path!)
     }
     
     // MARK: Functions
@@ -52,13 +52,13 @@ class RecordStore {
     }
     
     func updateRecord() {
-        allRecords.sort { $0.record < $1.record }
-        
         if allRecords.count == 0 {
             maxRecord.name = "- --:--:--"
             maxRecord.record = 360000
         }
         else {
+            allRecords.sort { $0.record < $1.record }
+            
             maxRecord.name = allRecords[0].name
             maxRecord.record = allRecords[0].record
             maxRecord.dateCreated = allRecords[0].dateCreated
