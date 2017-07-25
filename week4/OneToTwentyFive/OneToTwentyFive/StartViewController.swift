@@ -12,6 +12,7 @@ class StartViewController: UIViewController {
     
     // MARK: Properties
     
+    // 프로퍼티의 초기화에 관해서 레몬님 코멘트를 참고해보아요
     let homeLabel: UILabel! = UILabel()
     let playButton: UIButton! = UIButton(type: .system)
     let historyButton: UIButton! = UIButton(type: .system)
@@ -20,7 +21,7 @@ class StartViewController: UIViewController {
     var recordStore: RecordStore!
     
     // MARK: Draw
-    
+    // 접근지정자 생각해보기
     func createHomeLabel() {
         homeLabel.text = "1 to 25"
         homeLabel.textColor = UIColor(red: 111.0/RGBpoint, green: 167.0/RGBpoint, blue: 145.0/RGBpoint, alpha: 1.0)
@@ -114,6 +115,9 @@ class StartViewController: UIViewController {
         updateView()
         animateSmallHomeLabel()
     }
+    
+    /* 화면이 사라지면 애니메이션도 중지해야 합니다! 화면이 없는데, 애니메이션을 실행하고 있는 것은 낭비지요! 스레드 문제를 일으킬 수도 있습니다 */
+    /* 실행해 보면 알겠지만, 다른화면으로 넘어간 후에 뭔가 문제가 생깁니다. 고려해봐야 할 문제가 있습니다! */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueFromStartToPlay" {
