@@ -232,15 +232,7 @@ class PlayViewController: UIViewController {
         gameButtonsStackView.leadingAnchor.constraint(equalTo: playView.leadingAnchor).isActive = true
         gameButtonsStackView.trailingAnchor.constraint(equalTo: playView.trailingAnchor).isActive = true
         
-        var gameNumbers = [Int](1...25)
-        
-        for index in 0...24 {
-            let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
-            
-            gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
-            gameButton.gameButtons[index].addTarget(self, action: #selector(clickGameButton(_:)), for: .touchDown)
-            gameNumbers.remove(at: random)
-        }
+        animateGameButtons()
         
         startTimer()
     }
@@ -257,6 +249,37 @@ class PlayViewController: UIViewController {
             let miliSecond = (recordStore.maxRecord.record % 6000) % 100
             maxRecordLabel.text = "\(recordStore.maxRecord.name) " + String(format: "%02i:%02i:%02i", minute, second, miliSecond)
         }
+    }
+    
+    // MARK: Animation
+    
+    func animateGameButtons() {
+        UIView.animate(withDuration: 0.15, animations: {
+            for index in 0...24 {
+                self.gameButton.gameButtons[index].titleLabel!.alpha = 0.0
+            }
+        }, completion: { _ in
+            self.animateGameButtonsAppear()
+        })
+    }
+    
+    func animateGameButtonsAppear() {
+        UIView.animate(withDuration: 0.15, animations: {
+            for index in 0...24 {
+                self.gameButton.gameButtons[index].titleLabel!.alpha = 1.0
+                
+                var gameNumbers = [Int](1...25)
+                
+                for index in 0...24 {
+                    let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
+                    
+                    self.gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
+                    self.gameButton.gameButtons[index].addTarget(self, action: #selector(self.clickGameButton(_:)), for: .touchDown)
+                    gameNumbers.remove(at: random)
+                    
+                }
+            }
+        })
     }
     
     // MARK: override

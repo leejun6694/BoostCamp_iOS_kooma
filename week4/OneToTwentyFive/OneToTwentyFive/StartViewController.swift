@@ -26,6 +26,7 @@ class StartViewController: UIViewController {
         homeLabel.textColor = UIColor(red: 111.0/RGBpoint, green: 167.0/RGBpoint, blue: 145.0/RGBpoint, alpha: 1.0)
         homeLabel.textAlignment = .center
         homeLabel.font = UIFont(name: homeLabel.font.fontName, size: 60.0)
+        homeLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         self.view.addSubview(homeLabel)
         
         homeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -42,9 +43,9 @@ class StartViewController: UIViewController {
         self.view.addSubview(playButton)
         
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 8.0).isActive = true
-        playButton.leadingAnchor.constraint(equalTo: homeLabel.leadingAnchor).isActive = true
-        playButton.heightAnchor.constraint(equalTo: homeLabel.heightAnchor).isActive = true
+        playButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        playButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10.0).isActive = true
+        playButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
         
         playButton.addTarget(self, action: #selector(clickPlayButton(_:)), for: .touchUpInside)
     }
@@ -57,7 +58,7 @@ class StartViewController: UIViewController {
         
         historyButton.translatesAutoresizingMaskIntoConstraints = false
         historyButton.topAnchor.constraint(equalTo: playButton.topAnchor).isActive = true
-        historyButton.trailingAnchor.constraint(equalTo: homeLabel.trailingAnchor).isActive = true
+        historyButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10.0).isActive = true
         historyButton.heightAnchor.constraint(equalTo: playButton.heightAnchor).isActive = true
         historyButton.widthAnchor.constraint(equalTo: playButton.widthAnchor).isActive = true
         historyButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 8.0).isActive = true
@@ -69,6 +70,30 @@ class StartViewController: UIViewController {
         createHomeLabel()
         createPlayButton()
         createHistoryButton()
+    }
+    
+    // MARK: Animation
+    
+    func animateSmallHomeLabel() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.curveEaseOut],
+                       animations: {
+                        self.homeLabel.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        }, completion: { _ in
+            self.animateBigHomeLabel()
+        })
+    }
+    
+    func animateBigHomeLabel() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.curveEaseOut],
+                       animations: {
+                        self.homeLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: { _ in
+            self.animateSmallHomeLabel()
+        })
     }
     
     // MARK: Action
@@ -87,6 +112,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         updateView()
+        animateSmallHomeLabel()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
