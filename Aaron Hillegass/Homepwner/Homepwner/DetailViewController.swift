@@ -12,9 +12,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
-    @IBOutlet var nameField: UITextField!
-    @IBOutlet var serialNumberField: UITextField!
-    @IBOutlet var valueField: UITextField!
+    @IBOutlet var nameField: MyTextField!
+    @IBOutlet var serialNumberField: MyTextField!
+    @IBOutlet var valueField: MyTextField!
     @IBOutlet var dateLabel: UILabel!
     
     var item: Item! {

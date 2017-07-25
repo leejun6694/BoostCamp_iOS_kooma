@@ -43,7 +43,7 @@
   - [ ] Bronze - 추가 스택 뷰
 - [x] Chapter 13 - UINavigationController
   - [x] Bronze - 숫자 패드 표시하기
-  - [ ] Silver - UITextField 사용자화
+  - [x] Silver - UITextField 사용자화
   - [ ] Gold - 더 많은 뷰 컨트롤러 푸시하기
 
 ## Start Developing iOS Apps (Swift)

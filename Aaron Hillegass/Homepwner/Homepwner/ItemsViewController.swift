@@ -86,7 +86,7 @@ class ItemViewController: UITableViewController {
             
 //            cell.textLabel?.text = item.name
 //            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
-//            
+//            c
 //            cell.textLabel?.font = cell.textLabel?.font.withSize(20)
 //            cell.detailTextLabel?.font = cell.detailTextLabel?.font.withSize(20)
             

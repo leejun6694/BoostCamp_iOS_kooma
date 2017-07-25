@@ -23,8 +23,6 @@ class ItemCell: UITableViewCell {
         nameLabel.font = bodyFont
         valueLabel.font = bodyFont
         
-        
-        
         let captionFont = UIFont.preferredFont(forTextStyle: .caption1)
         serialNumberLabel.font = captionFont
     }
