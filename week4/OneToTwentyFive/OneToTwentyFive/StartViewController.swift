@@ -11,91 +11,50 @@ import UIKit
 class StartViewController: UIViewController {
     
     // MARK: Properties
-    
-    // 프로퍼티의 초기화에 관해서 레몬님 코멘트를 참고해보아요
-    let homeLabel: UILabel! = UILabel()
-    let playButton: UIButton! = UIButton(type: .system)
-    let historyButton: UIButton! = UIButton(type: .system)
-    let RGBpoint:CGFloat = 255.0
-    
+
     var recordStore: RecordStore!
     
-    // MARK: Draw
-    // 접근지정자 생각해보기
-    func createHomeLabel() {
+    private lazy var homeLabel: UILabel = {
+        let homeLabel = UILabel()
+        let RGBpoint:CGFloat = 255.0
+        
         homeLabel.text = "1 to 25"
         homeLabel.textColor = UIColor(red: 111.0/RGBpoint, green: 167.0/RGBpoint, blue: 145.0/RGBpoint, alpha: 1.0)
         homeLabel.textAlignment = .center
         homeLabel.font = UIFont(name: homeLabel.font.fontName, size: 60.0)
         homeLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        self.view.addSubview(homeLabel)
-        
         homeLabel.translatesAutoresizingMaskIntoConstraints = false
-        homeLabel.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        homeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10.0).isActive = true
-        homeLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10.0).isActive = true
-        homeLabel.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
-    }
     
-    func createPlayButton() {
+        return homeLabel
+    }()
+    
+    private lazy var playButton: UIButton = {
+        let playButton = UIButton(type: .system)
+        let RGBpoint:CGFloat = 255.0
+        
         playButton.setTitle("PLAY", for: .normal)
         playButton.setTitleColor(.white, for: .normal)
         playButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 104.0/RGBpoint, blue: 80.0/RGBpoint, alpha: 1.0)
-        self.view.addSubview(playButton)
-        
         playButton.translatesAutoresizingMaskIntoConstraints = false
-        playButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        playButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10.0).isActive = true
-        playButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.3).isActive = true
         
         playButton.addTarget(self, action: #selector(clickPlayButton(_:)), for: .touchUpInside)
-    }
+        
+        return playButton
+    }()
     
-    func createHistoryButton() {
+    private lazy var historyButton: UIButton = {
+        let historyButton = UIButton(type: .system)
+        let RGBpoint:CGFloat = 255.0
+
         historyButton.setTitle("HISTORY", for: .normal)
         historyButton.setTitleColor(.white, for: .normal)
         historyButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 104.0/RGBpoint, blue: 80.0/RGBpoint, alpha: 1.0)
-        self.view.addSubview(historyButton)
-        
         historyButton.translatesAutoresizingMaskIntoConstraints = false
-        historyButton.topAnchor.constraint(equalTo: playButton.topAnchor).isActive = true
-        historyButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10.0).isActive = true
-        historyButton.heightAnchor.constraint(equalTo: playButton.heightAnchor).isActive = true
-        historyButton.widthAnchor.constraint(equalTo: playButton.widthAnchor).isActive = true
-        historyButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 8.0).isActive = true
-        
+
         historyButton.addTarget(self, action: #selector(clickHistoryButton(_:)), for: .touchUpInside)
-    }
-    
-    func updateView() {
-        createHomeLabel()
-        createPlayButton()
-        createHistoryButton()
-    }
-    
-    // MARK: Animation
-    
-    func animateSmallHomeLabel() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       options: [.curveEaseOut],
-                       animations: {
-                        self.homeLabel.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }, completion: { _ in
-            self.animateBigHomeLabel()
-        })
-    }
-    
-    func animateBigHomeLabel() {
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       options: [.curveEaseOut],
-                       animations: {
-                        self.homeLabel.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        }, completion: { _ in
-            self.animateSmallHomeLabel()
-        })
-    }
+        
+        return historyButton
+    }()
     
     // MARK: Action
     
@@ -107,13 +66,41 @@ class StartViewController: UIViewController {
         self.performSegue(withIdentifier: "segueFromStartToHistory", sender: self)
     }
     
+    // MARK: Animation
+    
+    func animateHomeLabel() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [.curveEaseIn, .repeat, .autoreverse],
+                       animations: {
+                        self.homeLabel.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        })
+    }
+    
     // MARK: Override
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateView()
-        animateSmallHomeLabel()
+        view.addSubview(homeLabel)
+        view.addSubview(playButton)
+        view.addSubview(historyButton)
+        
+        view.addConstraints(homeLabelConstraints())
+        view.addConstraints(playButtonConstraints())
+        view.addConstraints(historyButtonConstraints())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        animateHomeLabel()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        homeLabel.transform = .identity
     }
     
     /* 화면이 사라지면 애니메이션도 중지해야 합니다! 화면이 없는데, 애니메이션을 실행하고 있는 것은 낭비지요! 스레드 문제를 일으킬 수도 있습니다 */
@@ -128,5 +115,34 @@ class StartViewController: UIViewController {
             let destinationController = segue.destination as! HistoryViewController
             destinationController.recordStore = self.recordStore
         }
+    }
+    
+    // MARK: Constraint
+    
+    private func homeLabelConstraints() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: homeLabel, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: homeLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 10.0)
+        let trailingConstraint = NSLayoutConstraint(item: homeLabel, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -10.0)
+        let heightConstraint = NSLayoutConstraint(item: homeLabel, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.3, constant: 0.0)
+        
+        return [topConstraint, leadingConstraint, trailingConstraint, heightConstraint]
+    }
+    
+    private func playButtonConstraints() -> [NSLayoutConstraint] {
+        let centerYConstraint = NSLayoutConstraint(item: playButton, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: playButton, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 10.0)
+        let heightConstraint = NSLayoutConstraint(item: playButton, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.3, constant: 0.0)
+        
+        return [centerYConstraint, leadingConstraint, heightConstraint]
+    }
+    
+    private func historyButtonConstraints() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: historyButton, attribute: .top, relatedBy: .equal, toItem: playButton, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: historyButton, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -10.0)
+        let heightConstraint = NSLayoutConstraint(item: historyButton, attribute: .height, relatedBy: .equal, toItem: playButton, attribute: .height, multiplier: 1.0, constant: 0.0)
+        let widthConstraint = NSLayoutConstraint(item: historyButton, attribute: .width, relatedBy: .equal, toItem: playButton, attribute: .width, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: historyButton, attribute: .leading, relatedBy: .equal, toItem: playButton, attribute: .trailing, multiplier: 1.0, constant: 8.0)
+        
+        return [topConstraint, trailingConstraint, heightConstraint, widthConstraint, leadingConstraint]
     }
 }

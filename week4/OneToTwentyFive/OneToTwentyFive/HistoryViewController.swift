@@ -13,14 +13,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: Properties
 
     var recordStore: RecordStore!
-    let headerLabel: UILabel! = UILabel()
-    let footerView: UIView! = UIView()
-    let tableView: UITableView! = UITableView()
-    let closeButton = UIButton(type: .system)
-    let resetButton = UIButton(type: .system)
     var recordCell: RecordCell! = RecordCell()
-    
-    let RGBpoint: CGFloat = 255.0
     
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,81 +23,57 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         return formatter
     }()
     
-    // MARK: Draw
-    
-    func createTableView() {
-        self.view.addSubview(tableView)
-        
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 60).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45).isActive = true
-    }
+        
+        return tableView
+    }()
     
-    func createHeaderLabel() {
+    private lazy var headerLabel: UILabel = {
+        let headerLabel = UILabel()
+        let RGBpoint: CGFloat = 255.0
         headerLabel.text = "HISTORY"
         headerLabel.textColor = UIColor(red: 111.0/RGBpoint, green: 167.0/RGBpoint, blue: 145.0/RGBpoint, alpha: 1.0)
         headerLabel.textAlignment = .center
         headerLabel.font = UIFont(name: headerLabel.font.fontName, size: 30.0)
-        self.view.addSubview(headerLabel)
-        
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        headerLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor).isActive = true
-        headerLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        headerLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        headerLabel.bottomAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
         
-    }
+        return headerLabel
+    }()
     
-    func createFooterView() {
-        self.view.addSubview(footerView)
-        
+    private lazy var footerView: UIView = {
+        let footerView = UIView()
         footerView.translatesAutoresizingMaskIntoConstraints = false
-        footerView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -45).isActive = true
-        footerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        footerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        footerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         
-        createCloseButton()
-        createResetButton()        
-    }
-    
-    func createCloseButton() {
+        return footerView
+    }()
+   
+    private lazy var closeButton: UIButton = {
+        let closeButton = UIButton(type: .system)
+        let RGBpoint: CGFloat = 255.0
         closeButton.setTitle("Close", for: .normal)
         closeButton.setTitleColor(.white, for: .normal)
         closeButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 125.0/RGBpoint, blue: 104.0/RGBpoint, alpha: 1.0)
-        self.footerView.addSubview(closeButton)
-        
         closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
-        closeButton.leadingAnchor.constraint(equalTo: footerView.leadingAnchor).isActive = true
-        closeButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
         
         closeButton.addTarget(self, action: #selector(clickCloseButton(_:)), for: .touchUpInside)
-    }
+        
+        return closeButton
+    }()
     
-    func createResetButton() {
+    private lazy var resetButton: UIButton = {
+        let resetButton = UIButton(type: .system)
+        let RGBpoint: CGFloat = 255.0
         resetButton.setTitle("Reset", for: .normal)
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 125.0/RGBpoint, blue: 104.0/RGBpoint, alpha: 1.0)
-        self.footerView.addSubview(resetButton)
-        
         resetButton.translatesAutoresizingMaskIntoConstraints = false
-        resetButton.topAnchor.constraint(equalTo: footerView.topAnchor).isActive = true
-        resetButton.trailingAnchor.constraint(equalTo: footerView.trailingAnchor).isActive = true
-        resetButton.bottomAnchor.constraint(equalTo: footerView.bottomAnchor).isActive = true
-        resetButton.leadingAnchor.constraint(equalTo: closeButton.trailingAnchor).isActive = true
-        resetButton.widthAnchor.constraint(equalTo: closeButton.widthAnchor).isActive = true
         
         resetButton.addTarget(self, action: #selector(clickResetButton(_:)), for: .touchUpInside)
-    }
-    
-    func updateView() {
-        createTableView()
-        createHeaderLabel()
-        createFooterView()
-    }
+        
+        return resetButton
+    }()
     
     // MARK: Actions
     
@@ -121,7 +90,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             [unowned self, tableView] (action) -> Void in
             
             self.recordStore.allRecords = []
-            tableView!.reloadData()
+            tableView.reloadData()
         })
         alert.addAction(yesAction)
         
@@ -170,11 +139,69 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateView()
+        view.addSubview(tableView)
+        view.addSubview(headerLabel)
+        view.addSubview(footerView)
+        footerView.addSubview(closeButton)
+        footerView.addSubview(resetButton)
         
-        tableView.tableFooterView = UIView()
+        view.addConstraints(tableViewConstraint())
+        view.addConstraints(headerLabelConstraint())
+        view.addConstraints(footerViewConstraint())
+        footerView.addConstraints(closeButtonConstraint())
+        footerView.addConstraints(resetButtonConstraint())
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        // section footer view
+        tableView.tableFooterView = UIView()
+    }
+    
+    // MARK: Constraint
+    
+    private func tableViewConstraint() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 80)
+        let leadingConstraint = NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: -45.0)
+        let trailingConstraint = NSLayoutConstraint(item: tableView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        
+        return [topConstraint, leadingConstraint, bottomConstraint, trailingConstraint]
+    }
+    
+    private func headerLabelConstraint() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: headerLabel, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: headerLabel, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: headerLabel, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: headerLabel, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        
+        return [topConstraint, leadingConstraint, bottomConstraint, trailingConstraint]
+    }
+    
+    private func footerViewConstraint() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: footerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: -45.0)
+        let leadingConstraint = NSLayoutConstraint(item: footerView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: footerView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: footerView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        
+        return [topConstraint, leadingConstraint, bottomConstraint, trailingConstraint]
+    }
+    
+    private func closeButtonConstraint() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: closeButton, attribute: .top, relatedBy: .equal, toItem: footerView, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: closeButton, attribute: .leading, relatedBy: .equal, toItem: footerView, attribute: .leading, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: closeButton, attribute: .bottom, relatedBy: .equal, toItem: footerView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        
+        return [topConstraint, leadingConstraint, bottomConstraint]
+    }
+    
+    private func resetButtonConstraint() -> [NSLayoutConstraint] {
+        let topConstraint = NSLayoutConstraint(item: resetButton, attribute: .top, relatedBy: .equal, toItem: footerView, attribute: .top, multiplier: 1.0, constant: 0.0)
+        let trailingConstraint = NSLayoutConstraint(item: resetButton, attribute: .trailing, relatedBy: .equal, toItem: footerView, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        let bottomConstraint = NSLayoutConstraint(item: resetButton, attribute: .bottom, relatedBy: .equal, toItem: footerView, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+        let leadingConstraint = NSLayoutConstraint(item: resetButton, attribute: .leading, relatedBy: .equal, toItem: closeButton, attribute: .trailing, multiplier: 1.0, constant: 0.0)
+        let widthConstraint = NSLayoutConstraint(item: resetButton, attribute: .width, relatedBy: .equal, toItem: closeButton, attribute: .width, multiplier: 1.0, constant: 0.0)
+        
+        return [topConstraint, trailingConstraint, bottomConstraint, leadingConstraint, widthConstraint]
     }
 }
