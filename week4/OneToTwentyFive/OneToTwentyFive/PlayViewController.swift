@@ -138,7 +138,7 @@ class PlayViewController: UIViewController {
     // MARK: Action
     
     func clickHomeButton(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func clickHistoryButton(_ sender: AnyObject) {

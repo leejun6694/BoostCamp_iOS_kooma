@@ -14,11 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let recordStore = RecordStore()
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let startViewController = window!.rootViewController as! StartViewController
+        let navController = window!.rootViewController as! UINavigationController
+        navController.isNavigationBarHidden = true
+        let startViewController = navController.topViewController as! StartViewController
         startViewController.recordStore = recordStore
         
         return true
