@@ -52,7 +52,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    // MARK: override
+    // MARK: Override
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -79,6 +79,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
                 item.valueInDollars = value.intValue
         } else {
             item.valueInDollars = 0
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueChangeDate" {
+            let destination = segue.destination as! ChangeDateViewController
+            destination.item = item
         }
     }
 }
