@@ -16,8 +16,8 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     let headerLabel: UILabel! = UILabel()
     let footerView: UIView! = UIView()
     let tableView: UITableView! = UITableView()
-    let closeButton = UIButton()
-    let resetButton = UIButton()
+    let closeButton = UIButton(type: .system)
+    let resetButton = UIButton(type: .system)
     var recordCell: RecordCell! = RecordCell()
     
     let RGBpoint: CGFloat = 255.0
@@ -117,9 +117,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let alert = UIAlertController(title: alertTitle, message: "", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)
         alert.addAction(noAction)
-        let yesAction = UIAlertAction(title: "YES", style: .destructive, handler: { (action) -> Void in
+        let yesAction = UIAlertAction(title: "YES", style: .destructive, handler: {
+            [unowned self, tableView] (action) -> Void in
+            
             self.recordStore.allRecords = []
-            self.tableView.reloadData()
+            tableView!.reloadData()
         })
         alert.addAction(yesAction)
         
@@ -134,6 +136,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(RecordCell.self, forCellReuseIdentifier: "RecordCell")
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecordCell", for: indexPath) as! RecordCell
         let recordItem = recordStore.allRecords[indexPath.row]
         
@@ -149,12 +152,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.nameLabel.text = recordItem.name
         cell.dateCreatedLabel.text = "(" + dateFormatter.string(from: recordItem.dateCreated) + ")"
         
-        if recordItem.record < recordStore.maxRecord.record {
-            recordStore.maxRecord.record = recordItem.record
-            recordStore.maxRecord.name = recordItem.name
-            recordStore.maxRecord.dateCreated = recordItem.dateCreated
-        }
-        
         return cell
     }
     
@@ -168,7 +165,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
 
-    // MARK: override
+    // MARK: Override
     
     override func viewDidLoad() {
         super.viewDidLoad()

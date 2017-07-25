@@ -13,8 +13,8 @@ class StartViewController: UIViewController {
     // MARK: Properties
     
     let homeLabel: UILabel! = UILabel()
-    let playButton: UIButton! = UIButton()
-    let historyButton: UIButton! = UIButton()
+    let playButton: UIButton! = UIButton(type: .system)
+    let historyButton: UIButton! = UIButton(type: .system)
     let RGBpoint:CGFloat = 255.0
     
     var recordStore: RecordStore!
@@ -106,7 +106,7 @@ class StartViewController: UIViewController {
         self.performSegue(withIdentifier: "segueFromStartToHistory", sender: self)
     }
     
-    // MARK: override
+    // MARK: Override
     
     override func viewDidLoad() {
         super.viewDidLoad()

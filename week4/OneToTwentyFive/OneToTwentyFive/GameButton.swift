@@ -41,7 +41,7 @@ class GameButton: UIStackView {
             addArrangedSubview(stackView)
             
             for _ in 0...4 {
-                let button = UIButton()
+                let button = UIButton(type: .system)
                 
                 button.setTitle("-", for: .normal)
                 button.setTitleColor(.white, for: .normal)

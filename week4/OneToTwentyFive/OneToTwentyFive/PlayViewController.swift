@@ -18,10 +18,10 @@ class PlayViewController: UIViewController {
     var recordTime = 1
     var currentTimer: Timer!
     let playView: UIView! = UIView()
-    let startButton: UIButton = UIButton()
+    let startButton: UIButton = UIButton(type: .system)
     var currentNumber: Int = 1
-    let homeButton: UIButton = UIButton()
-    let historyButton: UIButton = UIButton()
+    let homeButton: UIButton = UIButton(type: .system)
+    let historyButton: UIButton = UIButton(type: .system)
     let RGBpoint: CGFloat = 255.0
     
     var gameButtonsStackView: UIStackView! = nil
@@ -146,7 +146,6 @@ class PlayViewController: UIViewController {
     }
     
     func startTimer() {
-//        currentTimer = Timer()
         currentTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
@@ -203,9 +202,9 @@ class PlayViewController: UIViewController {
     }
     
     func initialGame() {
-        self.currentNumber = 1
+        currentNumber = 1
         for index in 0...24 {
-            self.gameButton.gameButtons[index].alpha = 1.0
+            gameButton.gameButtons[index].alpha = 1.0
         }
         
         recordTime = 0
@@ -282,7 +281,7 @@ class PlayViewController: UIViewController {
         })
     }
     
-    // MARK: override
+    // MARK: Override
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
