@@ -172,8 +172,9 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         updateView()
         
+        tableView.tableFooterView = UIView()
+        
         tableView.dataSource = self
         tableView.delegate = self
-    
     }
 }
