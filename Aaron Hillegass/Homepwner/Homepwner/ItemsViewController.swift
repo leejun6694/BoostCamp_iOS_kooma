@@ -178,6 +178,14 @@ class ItemViewController: UITableViewController {
             return proposedDestinationIndexPath
         }
     }
+    /*
+    struct CellHeight {
+        static let normal = 60.0
+        static let last = 44.0
+    }
+ 조금 더 명확하게 이름을 지어서 상수로 사용해 보는 건 어떨까요?
+ return CellHeight.normal 처럼요!
+ */
     
     // cell 높이 변경
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
