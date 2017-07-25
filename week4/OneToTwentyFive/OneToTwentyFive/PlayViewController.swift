@@ -269,11 +269,11 @@ class PlayViewController: UIViewController {
                 
                 var gameNumbers = [Int](1...25)
                 
-                for index in 0...24 {
-                    let random = Int(arc4random_uniform(UInt32(gameNumbers.count - 1)))
+                for subIndex in 0...24 {
+                    let random = Int(arc4random_uniform(UInt32(gameNumbers.count)))
                     
-                    self.gameButton.gameButtons[index].setTitle("\(gameNumbers[random])", for: .normal)
-                    self.gameButton.gameButtons[index].addTarget(self, action: #selector(self.clickGameButton(_:)), for: .touchDown)
+                    self.gameButton.gameButtons[subIndex].setTitle("\(gameNumbers[random])", for: .normal)
+                    self.gameButton.gameButtons[subIndex].addTarget(self, action: #selector(self.clickGameButton(_:)), for: .touchDown)
                     gameNumbers.remove(at: random)
                     
                 }
