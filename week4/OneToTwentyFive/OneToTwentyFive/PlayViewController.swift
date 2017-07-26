@@ -102,7 +102,8 @@ class PlayViewController: UIViewController {
         let historyButton = UIButton(type: .system)
         let RGBpoint: CGFloat = 255.0
         historyButton.setTitle("HISTORY", for: .normal)
-        historyButton.setTitleColor(.white, for: .normal)
+        historyButton.setTitleColor(UIColor(white: 1.0, alpha: 1.0), for: .normal)
+        historyButton.setTitleColor(UIColor(white: 1.0, alpha: 0.5), for: .disabled)
         historyButton.backgroundColor = UIColor(red: 220.0/RGBpoint, green: 125.0/RGBpoint, blue: 104.0/RGBpoint, alpha: 1.0)
         historyButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -128,7 +129,6 @@ class PlayViewController: UIViewController {
     
     func clickStartButton(_ sender: AnyObject) {
         historyButton.isEnabled = false
-        historyButton.titleLabel!.alpha = 0.5
         
         startButton.removeFromSuperview()
         playView.addSubview(gameButtonsStackView)
@@ -156,7 +156,6 @@ class PlayViewController: UIViewController {
     func clickLastButton() {
         currentTimer.invalidate()
         historyButton.isEnabled = true
-        historyButton.titleLabel!.alpha = 1.0
         
         gameButton.removeFromSuperview()
         playView.addSubview(startButton)
@@ -223,7 +222,7 @@ class PlayViewController: UIViewController {
     // MARK: Animation
     
     func animateGameButtons() {
-        UIView.animate(withDuration: 0.15, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             for index in 0...24 {
                 self.gameButton.gameButtons[index].titleLabel!.alpha = 0.0
             }
@@ -233,7 +232,7 @@ class PlayViewController: UIViewController {
     }
     
     func animateGameButtonsAppear() {
-        UIView.animate(withDuration: 0.15, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             for index in 0...24 {
                 self.gameButton.gameButtons[index].titleLabel!.alpha = 1.0
                 
