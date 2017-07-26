@@ -46,3 +46,4 @@
 ### Question
 - 왜 문자열 삽입 대신에 포맷지정자?
 - @obj
+- setTitleColor(white: 1.0, alpha: 0.5) vs button.textLabel?.alpha = 0.5
