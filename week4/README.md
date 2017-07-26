@@ -2,7 +2,7 @@
 
 ### Assignment
 - [x] 교재 8, 13, 17장 문제 해결해보기
-- [ ] 프로젝트 스토리보드 그려보기
+- [x] 프로젝트 스토리보드 그려보기
 - [ ] iOS 프로그래밍 가이드 읽어오기 과제
 - [x] 우리는 왜 클래스 또는 구조체를 사용할까?
 - [x] 1 to 25
@@ -42,8 +42,8 @@
   - Library/Caches/ : Documents와 같이 데이터를 저장하지만 동기화할 때 백업되지 않음
   - Library/Preferences/ : 설정 내용이 저장되고 설정 앱이 앱의 설정을 검색하는 디렉터리
   - tmp/ : 앱 실행 중에 임시로 사용하는 데이터를 저장하는 디렉터리
+- @obj : private 메서드를 셀렉터로 사용할 때
 
 ### Question
 - 왜 문자열 삽입 대신에 포맷지정자?
-- @obj
 - setTitleColor(white: 1.0, alpha: 0.5) vs button.textLabel?.alpha = 0.5
