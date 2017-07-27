@@ -3,7 +3,7 @@
 ### Assignment
 - [x] 교재 8, 13, 17장 문제 해결해보기
 - [x] 프로젝트 스토리보드 그려보기
-- [ ] iOS 프로그래밍 가이드 읽어오기 과제
+- [x] iOS 프로그래밍 가이드 읽어오기 과제
 - [x] 우리는 왜 클래스 또는 구조체를 사용할까?
 - [x] 1 to 25
 
@@ -45,5 +45,4 @@
 - @obj : private 메서드를 셀렉터로 사용할 때
 
 ### Question
-- 왜 문자열 삽입 대신에 포맷지정자?
 - setTitleColor(white: 1.0, alpha: 0.5) vs button.textLabel?.alpha = 0.5
