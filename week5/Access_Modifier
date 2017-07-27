@@ -1,0 +1,24 @@
+# 접근 지정자
+
+### open
+
+override 할 수 있고 inheritance도 가능하게 할 경우 swift 3.0 부터는 public이 아닌 open
+단, open을 사용시 상위 class도 open이 아니면 안된다
+accessible and subclassable outside of the defining module
+
+### public
+override 할 수 없고 inheritance도 불가능
+final public이 swift 3.0 이후에 public
+accessible but not overridable outside of the defining module
+
+### internal
+같은 module 내에서만 접근 허용
+default access level
+
+### fileprivate
+같은 file인 경우 접근 가능
+예를 들어 Apple.swift file 안에 BigApple class와 SmallApple class가 있으면, 하나의 클래스에서 다른 클래스의 fileprivate 접근 가능
+swift 3.0 이전엔 같은 파일 내 private을 사용할 수 있었지만 3.0 이후로는 fileprivate으로 명시해주어야 한다
+
+### private
+선언된 영역 내에서만 접근 가능하며 특정 함수의 세부 구현을 숨길 때 사용
