@@ -42,9 +42,13 @@ class ImageStore: NSObject {
         // 이미지의 전체 URL을 만든다
         let url = imageURLForKey(key: key)
         
-        // 이미지를 JPEG 데이터로 만든다
-        if let data = UIImageJPEGRepresentation(image, 0.5) {
-            // 이 데이터를 전체 URL에 쓴다
+//        // 이미지를 JPEG 데이터로 만든다
+//        if let data = UIImageJPEGRepresentation(image, 0.5) {
+//            // 이 데이터를 전체 URL에 쓴다
+//            let _ = try? data.write(to: url, options: [.atomic])
+//        }
+        
+        if let data = UIImagePNGRepresentation(image) {
             let _ = try? data.write(to: url, options: [.atomic])
         }
     }
