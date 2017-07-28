@@ -13,6 +13,12 @@ class ItemStore {
     // MARK: Properties
     
     var allItems = [Item]()
+    let itemArchiveURL: URL = {
+        let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentsDirectories.first!
+        
+        return documentDirectory.appendingPathComponent("items.archive")
+    }()
     
 //    // MARK: Initializer
 //    init() {
@@ -20,6 +26,13 @@ class ItemStore {
 //            let _ = createItem()
 //        }
 //    }
+    
+    // MARK: Initializer
+    init() {
+        if let archivedItem = NSKeyedUnarchiver.unarchiveObject(withFile: itemArchiveURL.path) as? [Item] {
+            allItems += archivedItem
+        }
+    }
     
     // MARK: Functions
     
@@ -50,5 +63,12 @@ class ItemStore {
         
         // 항목을 배열에서 새 위치에 삽입한다
         allItems.insert(movedItem, at: toIndex)
+    }
+    
+    // MARK: Archiving
+    func saveChanges() -> Bool {
+        print("Saving items to : \(itemArchiveURL.path)")
+        
+        return NSKeyedArchiver.archiveRootObject(allItems, toFile: itemArchiveURL.path)
     }
 }

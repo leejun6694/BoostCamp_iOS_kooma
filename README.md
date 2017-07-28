@@ -48,6 +48,9 @@
 - [x] Chapter 14 - 카메라
   - [x] Bronze - 이미지 편집하기
   - [x] Silver - 이미지 지우기
+  - [ ] Gold - 카메라 오버레이
+- [x] Chapter 15 - 저장하기, 불러오기, 앱 상태
+  - [ ] Bronze - PNG
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)
