@@ -18,7 +18,31 @@ default access level
 ### fileprivate
 같은 file인 경우 접근 가능
 예를 들어 Apple.swift file 안에 BigApple class와 SmallApple class가 있으면, 하나의 클래스에서 다른 클래스의 fileprivate 접근 가능
-swift 3.0 이전엔 같은 파일 내 private을 사용할 수 있었지만 3.0 이후로는 fileprivate으로 명시해주어야 한다
+swift 3.0 이전엔 같은 파일 내 private을 사용할 수 있었지만 3.0 이후로는 fileprivate 으로 명시해주어야 한다
 
 ### private
 선언된 영역 내에서만 접근 가능하며 특정 함수의 세부 구현을 숨길 때 사용
+
+##### Guiding Principle of Access Levels
+요소는 더 제한적인 접근 레벨을 가지는 다른 요소의 조건으로 정의 할 수 없다
+
+##### Default Access Levels
+코드 내에서 명시적으로 접근 지정자를 입력하지 않은 경우 internal 기본 접근 레벨을 가지고 있다
+
+##### SubClassing
+sub class는 super class보다 높은 접근 레벨을 가질 수 없다
+예를 들어 super class가 internal이고 sub class가 public일 수는 없다
+
+override는 상속된 클래스 멤버를 super class 버전보다 더 접근성 있게 만들수 있다
+```swift
+public class A {
+    fileprivate func someMethod() {}
+}
+
+internal class B: A {
+    override internal func someMethod() {}
+}
+```
+
+## Reference
+http://kka7.tistory.com/29
