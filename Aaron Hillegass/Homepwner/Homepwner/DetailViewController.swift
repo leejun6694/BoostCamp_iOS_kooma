@@ -67,6 +67,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
         
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         
         // 화면에 이미지 피커를 표시한다
         present(imagePicker, animated: true, completion: nil)
@@ -75,7 +76,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // 딕셔너리에서 선택된 이미지를 가져온다
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let image = info[UIImagePickerControllerEditedImage] as! UIImage
         
         // 이미지를 item의 키로 ImageStore 안에 저장한다
         imageStore.setImage(image: image, forKey: item.itemKey)

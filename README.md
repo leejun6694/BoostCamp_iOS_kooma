@@ -46,7 +46,7 @@
   - [x] Silver - UITextField 사용자화
   - [x] Gold - 더 많은 뷰 컨트롤러 푸시하기
 - [x] Chapter 14 - 카메라
-  - [ ] Bronze - 이미지 편집하기
+  - [x] Bronze - 이미지 편집하기
   - [ ] Silver - 이미지 지우기
 
 ## Start Developing iOS Apps (Swift)
