@@ -161,7 +161,6 @@
   - XML Support
 - Core OS Layer : contains the low-level features that most other technologies are built upon
 
-
 ### Question
 - resignFirstResponder()
   - 단지 hide keyboard에만 쓰이는게 아닐 듯

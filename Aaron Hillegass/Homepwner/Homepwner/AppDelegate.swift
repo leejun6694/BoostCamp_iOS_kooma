@@ -20,11 +20,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ItemStore를 만든다
         let itemStore = ItemStore()
         
+        // ImageStore를 만든다
+        let imageStore = ImageStore()
+        
         // ItemViewController에 접근하여 itemStore를 설정한다
 //        let itemsController = window!.rootViewController as! ItemViewController
         let navController = window!.rootViewController as! UINavigationController
         let itemsController = navController.topViewController as! ItemViewController
         itemsController.itemStore = itemStore
+        
+        // ItemViewController에 접근하여 itemStore와 imageStore를 설정한다
+        itemsController.imageStore = imageStore
         
         return true
     }

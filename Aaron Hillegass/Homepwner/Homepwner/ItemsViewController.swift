@@ -13,6 +13,7 @@ class ItemViewController: UITableViewController {
     // MARK: Properties
     
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
     
     // MARK: Initializer
     
@@ -137,6 +138,9 @@ class ItemViewController: UITableViewController {
                 // 저장소에서 그 항목을 제거한다
                 self.itemStore.removeItem(item: item)
                 
+                // 이미지 저장소에서 item의 이미지를 제거한다
+                self.imageStore.deleteImageForKey(key: item.itemKey)
+                
                 // 또한 애니메이션과 함께 테이블 뷰에서 그 행을 제거한다
 //                self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -178,14 +182,6 @@ class ItemViewController: UITableViewController {
             return proposedDestinationIndexPath
         }
     }
-    /*
-    struct CellHeight {
-        static let normal = 60.0
-        static let last = 44.0
-    }
- 조금 더 명확하게 이름을 지어서 상수로 사용해 보는 건 어떨까요?
- return CellHeight.normal 처럼요!
- */
     
     // cell 높이 변경
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -230,6 +226,7 @@ class ItemViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         }
     }
