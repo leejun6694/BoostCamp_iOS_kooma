@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum PhotoResult {
+    case success([Photo])
+    case failure(Error)
+}
+
 enum ImageResult {
     case success(UIImage)
     case failure(Error)
@@ -17,12 +22,9 @@ enum PhotoError: Error {
     case imageCreationError
 }
 
-enum PhotoResult {
-    case success([Photo])
-    case failure(Error)
-}
-
 class PhotoStore {
+    let imageStore = ImageStore()
+    
     private let session: URLSession = {
         let config = URLSessionConfiguration.default
         
@@ -48,22 +50,6 @@ class PhotoStore {
                 completion(result)
             }
             print("Fetch Photos: \(response.debugDescription)")
-            
-//            if let jsonData = data {
-//                do {
-//                    let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
-//                    print(jsonObject)
-//                }
-//                catch let error {
-//                    print("Error create JSON object: \(error)")
-//                }
-//            }
-//            else if let requestError = error {
-//                print("Error fetching interesting photos: \(requestError)")
-//            }
-//            else {
-//                print("Unexpected error with the request")
-//            }
         }
         task.resume()
     }
@@ -86,6 +72,14 @@ class PhotoStore {
     }
     
     func fetchImage(for photo: Photo, completion: @escaping (ImageResult) -> Void) {
+        let photoKey = photo.photoID
+        if let image = imageStore.imageForKey(key: photoKey) {
+            OperationQueue.main.addOperation {
+                completion(.success(image))
+            }
+            return
+        }
+        
         let photoURL = photo.remoteURL
         let request = URLRequest(url: photoURL)
         
@@ -96,6 +90,11 @@ class PhotoStore {
             OperationQueue.main.addOperation {
                 completion(result)
             }
+            
+            if case let .success(image) = result {
+                self.imageStore.setImage(image: image, forKey: photoKey)
+            }
+            
             print("Fetch Image: \(response.debugDescription)")
         }
         task.resume()

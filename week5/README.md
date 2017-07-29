@@ -33,5 +33,25 @@
     - URLSessionDataTask : 서버로부터 데이터를 가져와서 메모리에 NSData로 반환
     - URLSessionDownloadTask : 서버로부터 데이터를 가져와서 파일시스템에 파일로 저장
     - URLSessionUploadTask : 서버로 데이터를 보낸다
+  - awakeFromNib() : 인터페이스 파일이 로드되고 아웃렛 커넥션이 만들어진 후에 호출
+  - prepareForReuse() : 셀이 재사용되기 직전에 호출
+  - case let
+    ```swift
+    if case let .success(image) = result {
+      photo.image = image
+    }
+    ```
+
+    same
+
+    ```swift
+    switch result {
+      case let .success(image):
+        photo.image = image
+      case .failure:
+        break
+    }
+    ```
 
 ### Question
+- Equatable

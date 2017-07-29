@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72A7C9B51F2CD54800B67A94 /* PhotoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7C9B41F2CD54800B67A94 /* PhotoDataSource.swift */; };
+		72A7C9B71F2CD9F800B67A94 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7C9B61F2CD9F800B67A94 /* PhotoCollectionViewCell.swift */; };
+		72A7C9B91F2CEAED00B67A94 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7C9B81F2CEAED00B67A94 /* PhotoInfoViewController.swift */; };
+		72A7C9BB1F2CEBEA00B67A94 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A7C9BA1F2CEBEA00B67A94 /* ImageStore.swift */; };
 		72F98AE11F2C5CAD002B438E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F98AE01F2C5CAD002B438E /* AppDelegate.swift */; };
 		72F98AE61F2C5CAD002B438E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72F98AE41F2C5CAD002B438E /* Main.storyboard */; };
 		72F98AE81F2C5CAD002B438E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F98AE71F2C5CAD002B438E /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72A7C9B41F2CD54800B67A94 /* PhotoDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataSource.swift; sourceTree = "<group>"; };
+		72A7C9B61F2CD9F800B67A94 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		72A7C9B81F2CEAED00B67A94 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = "<group>"; };
+		72A7C9BA1F2CEBEA00B67A94 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		72F98ADD1F2C5CAD002B438E /* Photorama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photorama.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F98AE01F2C5CAD002B438E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72F98AE51F2C5CAD002B438E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,7 +72,11 @@
 				72F98AF81F2C7019002B438E /* Photo.swift */,
 				72F98AF41F2C5F19002B438E /* FlickrAPI.swift */,
 				72F98AF61F2C6753002B438E /* PhotoStore.swift */,
+				72A7C9BA1F2CEBEA00B67A94 /* ImageStore.swift */,
+				72A7C9B41F2CD54800B67A94 /* PhotoDataSource.swift */,
+				72A7C9B61F2CD9F800B67A94 /* PhotoCollectionViewCell.swift */,
 				72F98AF21F2C5CD0002B438E /* PhotosViewController.swift */,
+				72A7C9B81F2CEAED00B67A94 /* PhotoInfoViewController.swift */,
 				72F98AE41F2C5CAD002B438E /* Main.storyboard */,
 				72F98AE71F2C5CAD002B438E /* Assets.xcassets */,
 				72F98AE91F2C5CAD002B438E /* LaunchScreen.storyboard */,
@@ -149,6 +161,10 @@
 				72F98AF51F2C5F19002B438E /* FlickrAPI.swift in Sources */,
 				72F98AF31F2C5CD0002B438E /* PhotosViewController.swift in Sources */,
 				72F98AF71F2C6753002B438E /* PhotoStore.swift in Sources */,
+				72A7C9B51F2CD54800B67A94 /* PhotoDataSource.swift in Sources */,
+				72A7C9B71F2CD9F800B67A94 /* PhotoCollectionViewCell.swift in Sources */,
+				72A7C9BB1F2CEBEA00B67A94 /* ImageStore.swift in Sources */,
+				72A7C9B91F2CEAED00B67A94 /* PhotoInfoViewController.swift in Sources */,
 				72F98AE11F2C5CAD002B438E /* AppDelegate.swift in Sources */,
 				72F98AF91F2C7019002B438E /* Photo.swift in Sources */,
 			);
@@ -316,6 +332,7 @@
 				72F98AF11F2C5CAD002B438E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

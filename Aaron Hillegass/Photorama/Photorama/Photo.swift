@@ -9,6 +9,7 @@
 import UIKit
 
 class Photo {
+    
     let title: String
     let remoteURL: URL
     let photoID: String
@@ -20,5 +21,11 @@ class Photo {
         self.photoID = photoID
         self.remoteURL = remoteURL
         self.dateTaken = dateTaken
+    }
+}
+
+extension Photo: Equatable {
+    static func == (lhs: Photo, rhs: Photo) -> Bool {
+        return lhs.photoID == rhs.photoID
     }
 }
