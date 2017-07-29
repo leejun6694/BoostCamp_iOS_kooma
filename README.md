@@ -53,7 +53,7 @@
   - [x] Bronze - PNG
 > [Photorama](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/Aaron%20Hillegass/Photorama)
 - [x] Chapter 19 - Web Services
-  - [ ] Bronze - 응답 정보 출력하기
+  - [x] Bronze - 응답 정보 출력하기
 
 ## Start Developing iOS Apps (Swift)
 > [FoodTracker](https://github.com/leejun6694/BoostCamp_iOS_kooma/tree/master/FoodTracker)

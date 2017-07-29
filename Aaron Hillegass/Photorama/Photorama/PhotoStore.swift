@@ -47,6 +47,7 @@ class PhotoStore {
             OperationQueue.main.addOperation {
                 completion(result)
             }
+            print("Fetch Photos: \(response.debugDescription)")
             
 //            if let jsonData = data {
 //                do {
@@ -95,6 +96,7 @@ class PhotoStore {
             OperationQueue.main.addOperation {
                 completion(result)
             }
+            print("Fetch Image: \(response.debugDescription)")
         }
         task.resume()
     }
