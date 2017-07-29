@@ -22,4 +22,16 @@
     - 사용하면 검사할 조건식을 실패 케이스에 직접 연결할 수 있음
     - 이는 코드를 더 쉽고 가독성 있게 만듬
 
+- Web Services
+  - URLRequest
+    - allHTTPHeaderFields : HTTP 트랜젝션에 관한 메타데이터의 딕셔너리. 문자 인코딩, 서버의 캐싱 처리법 등을 포함
+    - allowsCellularAccess : 요청에서 셀룰러 데이터를 사용할 것인지의 여부를 나타냄. boolean
+    - cachePolicy : 로컬 캐시를 어떻게 사용할지를 결정
+    - HTTPMethod : 요청 메서드. 기본 값은 GET이고 다른 값으로 POST, PUT, DELETE
+    - timeoutInterval : 서버에 요청을 시도할 연결의 최대 지속 시간
+  - URLSession
+    - URLSessionDataTask : 서버로부터 데이터를 가져와서 메모리에 NSData로 반환
+    - URLSessionDownloadTask : 서버로부터 데이터를 가져와서 파일시스템에 파일로 저장
+    - URLSessionUploadTask : 서버로 데이터를 보낸다
+
 ### Question
