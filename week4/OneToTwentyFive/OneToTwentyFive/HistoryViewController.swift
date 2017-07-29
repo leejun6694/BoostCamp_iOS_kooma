@@ -77,11 +77,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // MARK: Actions
     
-    func clickCloseButton(_ sender: AnyObject) {
+    @objc fileprivate func clickCloseButton(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
     }
     
-    func clickResetButton(_ sender: AnyObject) {
+    @objc fileprivate func clickResetButton(_ sender: AnyObject) {
         let alertTitle = "REALLY?"
         let alert = UIAlertController(title: alertTitle, message: "", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "NO", style: .cancel, handler: nil)

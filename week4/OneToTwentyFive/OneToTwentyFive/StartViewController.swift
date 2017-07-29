@@ -11,7 +11,7 @@ import UIKit
 class StartViewController: UIViewController {
     
     // MARK: Properties
-
+    
     var recordStore: RecordStore!
     
     private lazy var homeLabel: UILabel = {

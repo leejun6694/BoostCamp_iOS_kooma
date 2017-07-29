@@ -114,11 +114,11 @@ class PlayViewController: UIViewController {
     
     // MARK: Action
     
-    func startTimer() {
+    private func startTimer() {
         currentTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
-    func updateTimer() {
+    @objc fileprivate func updateTimer() {
         recordTime += 1
         
         let minute = recordTime / 6000
@@ -127,7 +127,7 @@ class PlayViewController: UIViewController {
         currentRecordLabel.text = String(format: "%02i:%02i:%02i", minute, second, miliSecond)
     }
     
-    func clickStartButton(_ sender: AnyObject) {
+    @objc fileprivate func clickStartButton(_ sender: AnyObject) {
         historyButton.isEnabled = false
         
         startButton.removeFromSuperview()
@@ -139,7 +139,7 @@ class PlayViewController: UIViewController {
         startTimer()
     }
     
-    func clickGameButton(_ sender: UIButton) {
+    @objc fileprivate func clickGameButton(_ sender: UIButton) {
         if Int((sender.titleLabel?.text)!)! == currentNumber {
             currentNumber = currentNumber + 1
             sender.alpha = 0.0
@@ -153,7 +153,7 @@ class PlayViewController: UIViewController {
         }
     }
     
-    func clickLastButton() {
+    @objc fileprivate func clickLastButton() {
         currentTimer.invalidate()
         historyButton.isEnabled = true
         
@@ -183,11 +183,11 @@ class PlayViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func configurationTextField(textField: UITextField) {
+    fileprivate func configurationTextField(textField: UITextField) {
         textField.placeholder = "Enter your name"
     }
     
-    func initialGame() {
+    fileprivate func initialGame() {
         currentNumber = 1
         for index in 0...24 {
             gameButton.gameButtons[index].alpha = 1.0
@@ -211,17 +211,17 @@ class PlayViewController: UIViewController {
         }
     }
     
-    func clickHomeButton(_ sender: AnyObject) {
+    @objc fileprivate func clickHomeButton(_ sender: AnyObject) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func clickHistoryButton(_ sender: AnyObject) {
+    @objc fileprivate func clickHistoryButton(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "segueFromPlayToHistory", sender: self)
     }
     
     // MARK: Animation
     
-    func animateGameButtons() {
+    fileprivate func animateGameButtons() {
         UIView.animate(withDuration: 0.1, animations: {
             for index in 0...24 {
                 self.gameButton.gameButtons[index].titleLabel!.alpha = 0.0
@@ -231,7 +231,7 @@ class PlayViewController: UIViewController {
         })
     }
     
-    func animateGameButtonsAppear() {
+    fileprivate func animateGameButtonsAppear() {
         UIView.animate(withDuration: 0.1, animations: {
             for index in 0...24 {
                 self.gameButton.gameButtons[index].titleLabel!.alpha = 1.0
