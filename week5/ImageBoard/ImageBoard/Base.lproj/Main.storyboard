@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="200-eP-d0A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zi8-X7-N5Y">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,15 +23,93 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Rt-JY-4Oe"/>
+                    <connections>
+                        <segue destination="m0Q-y9-duN" kind="show" identifier="segueLoginToSignup" id="NT9-9S-6fP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="792"/>
+            <point key="canvasLocation" x="1773" y="1903"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="xBy-75-uc7">
+            <objects>
+                <viewController id="1EV-mw-rL2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MTj-G5-60D"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ml-of-vGK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u28-ov-swS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Collection" id="zyC-qN-GWb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dG6-bs-TJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3102" y="1281"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="Yhe-Cv-R7h">
+            <objects>
+                <viewController id="SWt-Wz-RXy" customClass="ImageTableViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mAM-vy-eJ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="lpF-qb-q53"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mS7-ga-yuS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Table" id="HoE-gx-VPJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NYQ-iG-nnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3102" y="308"/>
+        </scene>
+        <!--Tabbar Controller-->
+        <scene sceneID="MAT-LI-HT0">
+            <objects>
+                <tabBarController id="zi8-X7-N5Y" customClass="TabbarController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="wCQ-2E-Cz1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="SWt-Wz-RXy" kind="relationship" relationship="viewControllers" id="3mT-E2-Wi9"/>
+                        <segue destination="1EV-mw-rL2" kind="relationship" relationship="viewControllers" id="t7C-Y8-bS2"/>
+                        <segue destination="200-eP-d0A" kind="presentation" identifier="segueTabToNavi" id="bxk-ez-Wvx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqU-ww-3C4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2079" y="793"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="Xam-Bv-BaP">
+            <objects>
+                <viewController id="m0Q-y9-duN" customClass="SignupViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="59Q-Td-uHu"/>
+                        <viewControllerLayoutGuide type="bottom" id="aHs-Uo-jR7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4dc-qe-0r5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfZ-sg-s9m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2487" y="1903"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z85-Zx-bzv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="200-eP-d0A" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="200-eP-d0A" customClass="NavigationController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7nn-fK-aiv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -44,7 +122,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOX-O4-Dua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="792.95352323838085"/>
+            <point key="canvasLocation" x="1100" y="1464"/>
         </scene>
     </scenes>
 </document>

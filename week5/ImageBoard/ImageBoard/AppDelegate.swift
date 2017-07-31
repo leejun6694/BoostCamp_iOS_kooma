@@ -12,13 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    var session: URLSession?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        let navController = window!.rootViewController as! UINavigationController
-        let startViewController = navController.topViewController as! LoginViewController
         
         return true
     }
