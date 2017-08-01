@@ -10,7 +10,7 @@ import UIKit
 
 class ImageTableViewController: UIViewController {
     
-    // MARK: Propertvar
+    // MARK: Properties
     
     var images = [Image]()
     var store: ImageStore = ImageStore()
@@ -43,13 +43,24 @@ class ImageTableViewController: UIViewController {
                 
                 switch imageResult {
                 case let .ok(image):
-                    print(image.count)
                     self.images = image
                 case let .fail(error):
                     print(error)
                     self.images.removeAll()
                 }
                 self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueTableToDetail" {
+            
+            if let row = tableView.indexPathForSelectedRow?.row {
+                
+                let imageItem = self.images[row]
+                let detailViewController = segue.destination as! DetailTableViewController
+                detailViewController.images = imageItem
             }
         }
     }
@@ -78,13 +89,32 @@ extension ImageTableViewController: UITableViewDelegate, UITableViewDataSource {
         cell.titleLabel.text = imageItem.imageTitle
         cell.nickNameLabel.text = imageItem.authorNickName
         cell.createdLabel.text = String(imageItem.createdAt)
-        cell.cellImageView.image = imageItem.thumbImage
+        
+        let imageRequest = URLRequest(url: imageItem.thumbImageURL)
+        let imageSession = URLSession.shared
+        
+        let task = imageSession.dataTask(with: imageRequest) {
+            (data, response, error) -> Void in
+            
+            guard let imageData = data else{
+                return
+            }
+            
+            OperationQueue.main.addOperation {
+                cell.cellImageView.image = UIImage(data: imageData)
+            }
+        }
+        task.resume()
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segueTableToDetail", sender: self)
     }
 }
 

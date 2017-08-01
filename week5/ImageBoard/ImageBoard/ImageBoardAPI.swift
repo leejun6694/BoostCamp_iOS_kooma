@@ -81,29 +81,13 @@ struct ImageBoardAPI {
             let authorNickName = image["author_nickname"] as? String,
             let author = image["author"] as? String,
             let imageDesc = image["image_desc"] as? String,
-            let imageTitle = image["image_title"] as? String else {
+            let imageTitle = image["image_title"] as? String,
+            let thumbImageURL = URL(string: self.baseURLString + thumbImageString),
+            let imageURL = URL(string: self.baseURLString + imageString) else {
                 return nil
         }
         
-        let thumbImageURL: URL! = URL(string: self.baseURLString + thumbImageString)
-        let imageURL: URL! = URL(string: self.baseURLString + imageString)
-        
-        var thumbImage: UIImage!
-        let imageRequest = URLRequest(url: thumbImageURL)
-        let imageSession = URLSession.shared
-        
-        let task = imageSession.dataTask(with: imageRequest) {
-            (data, response, error) -> Void in
-            
-            guard let imageData = data else{
-                return
-            }
-            thumbImage = UIImage(data: imageData)
-            
-        }
-        task.resume()
-        
-        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle, thumbImage: thumbImage)
+        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle)
     }
 }
 
