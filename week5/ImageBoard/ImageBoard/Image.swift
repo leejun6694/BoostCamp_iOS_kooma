@@ -19,10 +19,8 @@ class Image {
     let imageDesc: String
     let imageTitle: String
     
-    let thumbImage: UIImage
-    
     init(id: String, createdAt: Int, thumbImageURL: URL, imageURL: URL, authorNickName: String,
-         author: String, imageDesc: String, imageTitle: String, thumbImage: UIImage) {
+         author: String, imageDesc: String, imageTitle: String) {
         self.id = id
         self.createdAt = createdAt
         self.thumbImageURL = thumbImageURL
@@ -31,7 +29,6 @@ class Image {
         self.author = author
         self.imageDesc = imageDesc
         self.imageTitle = imageTitle
-        self.thumbImage = thumbImage
     }
 }
 

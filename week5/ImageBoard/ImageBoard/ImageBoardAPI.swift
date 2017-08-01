@@ -81,31 +81,12 @@ struct ImageBoardAPI {
             let authorNickName = image["author_nickname"] as? String,
             let author = image["author"] as? String,
             let imageDesc = image["image_desc"] as? String,
-            let imageTitle = image["image_title"] as? String else {
+            let imageTitle = image["image_title"] as? String,
+            let thumbImageURL = URL(string: self.baseURLString + thumbImageString),
+            let imageURL = URL(string: self.baseURLString + imageString) else {
                 return nil
         }
         
-        let thumbImageURL: URL! = URL(string: self.baseURLString + thumbImageString)
-        let imageURL: URL! = URL(string: self.baseURLString + imageString)
-        
-        var thumbImage: UIImage!
-        let imageRequest = URLRequest(url: thumbImageURL)
-        let imageSession = URLSession.shared
-        
-        // 비동기 작업이므로 아래 return 구문이 실행된 이후에 완료될 수 있음을 인지해야 합니다.
-        // 아래 return 구문에서 계속 thumbImage가 nil이라서 크래시가 나지요
-        let task = imageSession.dataTask(with: imageRequest) {
-            (data, response, error) -> Void in
-            
-            guard let imageData = data else{
-                return
-            }
-            thumbImage = UIImage(data: imageData)
-            
-        }
-        task.resume()
-        
-        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle, thumbImage: thumbImage)
-    }
+        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle)
 }
 

@@ -18,12 +18,10 @@ class User {
             let user = jsonObject as? [String:Any]
             
             guard
-                let email = user?["email"] as? String,
-                let nickName = user?["nickname"] as? String else {
+                let _ = user?["email"] as? String,
+                let _ = user?["nickname"] as? String else {
                     return .unauthorized
             }
-            print(email)
-            print(nickName)
         }
         catch {
             return .unauthorized
@@ -38,14 +36,11 @@ class User {
             let user = jsonObject as? [String:Any]
             
             guard
-                let email = user?["email"] as? String,
-                let nickName = user?["nickname"] as? String,
-                let password = user?["password"] as? String else {
+                let _ = user?["email"] as? String,
+                let _ = user?["nickname"] as? String,
+                let _ = user?["password"] as? String else {
                     return .overlaped
             }
-            print(email)
-            print(nickName)
-            print(password)
         }
         catch {
             return .overlaped

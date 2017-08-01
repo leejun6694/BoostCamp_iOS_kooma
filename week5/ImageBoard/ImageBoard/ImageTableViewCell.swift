@@ -62,4 +62,7 @@ class ImageTableViewCell: UITableViewCell {
         nickNameLabel.font = captionFont
         createdLabel.font = captionFont
     }
+    
+    
+    
 }
