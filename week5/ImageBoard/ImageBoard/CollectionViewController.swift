@@ -9,6 +9,6 @@
 import UIKit
 
 class CollectionViewController: UIViewController {
-    
-    
+ 
+    @IBOutlet var collectionView: UICollectionView!
 }

@@ -12,15 +12,17 @@ class Image {
     
     let id: String
     let createdAt: Int
-    let thumbImageURL: String
-    let imageURL: String
+    let thumbImageURL: URL
+    let imageURL: URL
     let authorNickName: String
     let author: String
     let imageDesc: String
     let imageTitle: String
     
-    init(id: String, createdAt: Int, thumbImageURL: String, imageURL: String, authorNickName: String,
-         author: String, imageDesc: String, imageTitle: String) {
+    let thumbImage: UIImage
+    
+    init(id: String, createdAt: Int, thumbImageURL: URL, imageURL: URL, authorNickName: String,
+         author: String, imageDesc: String, imageTitle: String, thumbImage: UIImage) {
         self.id = id
         self.createdAt = createdAt
         self.thumbImageURL = thumbImageURL
@@ -29,5 +31,12 @@ class Image {
         self.author = author
         self.imageDesc = imageDesc
         self.imageTitle = imageTitle
+        self.thumbImage = thumbImage
+    }
+}
+
+extension Image: Equatable {
+    static func == (lhs: Image, rhs: Image) -> Bool {
+        return lhs.id == rhs.id
     }
 }

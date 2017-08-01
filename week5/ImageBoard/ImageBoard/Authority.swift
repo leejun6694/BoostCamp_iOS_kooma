@@ -43,6 +43,17 @@ class Authority {
         let task = session.dataTask(with: request) {
             (data, response, error) -> Void in
             
+//            guard let httpResponse = response as? HTTPURLResponse else {
+//                return
+//            }
+//            
+//            switch httpResponse.statusCode {
+//            case 400..<500:
+//                return
+//            default:
+//                
+//            }
+            
             let result = self.processLogin(data: data, error: error)
             OperationQueue.main.addOperation {
                 completion(result)

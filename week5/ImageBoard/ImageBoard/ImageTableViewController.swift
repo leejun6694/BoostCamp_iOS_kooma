@@ -10,7 +10,7 @@ import UIKit
 
 class ImageTableViewController: UIViewController {
     
-    // MARK: Properties
+    // MARK: Propertvar
     
     var images = [Image]()
     var store: ImageStore = ImageStore()
@@ -31,8 +31,10 @@ class ImageTableViewController: UIViewController {
         
         self.view.addSubview(tableView)
         self.view.addConstraints(tableViewConstraints())
-//        self.tableView.delegate = self
-//        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.refreshControl = UIRefreshControl()
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if appDelegate.session != nil {
@@ -67,16 +69,22 @@ extension ImageTableViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
         let imageItem = self.images[indexPath.row]
         
-        cell.createTitleLabel()
-        cell.createCreatedLabel()
-        cell.createNickNameLabel()
         cell.createCellImageView()
+        cell.createTitleLabel()
+        cell.createNickNameLabel()
+        cell.createCreatedLabel()
+        cell.updateLabels()
         
         cell.titleLabel.text = imageItem.imageTitle
         cell.nickNameLabel.text = imageItem.authorNickName
         cell.createdLabel.text = String(imageItem.createdAt)
+        cell.cellImageView.image = imageItem.thumbImage
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
 

@@ -128,6 +128,7 @@ class LoginViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueLoginToSignup" {
             self.signupFlag = false
+            
             let destinationController = segue.destination as! SignupViewController
             destinationController.signupFlag = self.signupFlag
         }

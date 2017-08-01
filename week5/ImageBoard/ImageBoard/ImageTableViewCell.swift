@@ -23,9 +23,10 @@ class ImageTableViewCell: UITableViewCell {
         self.addSubview(cellImageView)
         cellImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        cellImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        cellImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        cellImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        let margins = self.layoutMarginsGuide
+        cellImageView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        cellImageView.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        cellImageView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
         cellImageView.widthAnchor.constraint(equalTo: cellImageView.heightAnchor).isActive = true
     }
     
@@ -51,5 +52,14 @@ class ImageTableViewCell: UITableViewCell {
         
         createdLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor).isActive = true
         createdLabel.bottomAnchor.constraint(equalTo: cellImageView.bottomAnchor).isActive = true
+    }
+    
+    func updateLabels() {
+        let bodyFont = UIFont.preferredFont(forTextStyle: .body)
+        titleLabel.font = bodyFont
+        
+        let captionFont = UIFont.preferredFont(forTextStyle: .caption1)
+        nickNameLabel.font = captionFont
+        createdLabel.font = captionFont
     }
 }

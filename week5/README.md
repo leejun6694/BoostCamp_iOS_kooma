@@ -5,10 +5,10 @@
 - [ ] 프로젝트 스토리보드 더 자세한 스펙 그려보기
 - [x] 스위프트에 옵셔널은 왜 존재할까?
 - [ ] 사진 게시판 애플리케이션 만들어보기
-  - [ ] 회원가입 (성공/실패)
-  - [ ] 회원가입 (입력값 확인)
-  - [ ] 로그인
-  - [ ] 테이블뷰
+  - [x] 회원가입 (성공/실패)
+  - [x] 회원가입 (입력값 확인)
+  - [x] 로그인
+  - [x] 테이블뷰
   - [ ] 게시물 작성 / 새로고침
   - [ ] 게시물 삭제
   - [ ] 게시물 수정
@@ -67,5 +67,16 @@
 - ImageBoard
   - navigation bar가 있다면 topLayoutGuide는 bar 기준
 
+  ```
+  url
+  request = URLRequest(url: url)
+  request 설정 (method, value, body)
+  session.task(with: request)
+  task.resume()
+  ```
+
+  - session
+    - 상호작용적인 정보 교환
+    - 서버가 해당 서버(웹)로 접근 (request)한 클라이언트를 식별하는 방법
+
 ### Question
-- Equatable

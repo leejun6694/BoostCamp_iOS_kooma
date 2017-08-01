@@ -41,6 +41,7 @@ class SignupViewController: UIViewController {
         pwField.borderStyle = .roundedRect
         pwField.placeholder = "Password"
         pwField.translatesAutoresizingMaskIntoConstraints = false
+        pwField.isSecureTextEntry = true
         
         return pwField
     }()
@@ -52,6 +53,7 @@ class SignupViewController: UIViewController {
         pwCheckField.placeholder = "Password Check"
         pwCheckField.translatesAutoresizingMaskIntoConstraints = false
         pwCheckField.translatesAutoresizingMaskIntoConstraints = false
+        pwCheckField.isSecureTextEntry = true
         
         return pwCheckField
     }()
@@ -128,7 +130,6 @@ class SignupViewController: UIViewController {
     }
     
     private func blankField() {
-        print("black")
         let alert = UIAlertController(title: "모든 항목을 입력해주세요", message: "", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
         alert.addAction(okAction)

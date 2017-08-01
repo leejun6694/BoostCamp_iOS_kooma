@@ -6,7 +6,7 @@
 //  Copyright © 2017년 LEEJUN. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Method: String {
     case login = "login"
@@ -28,8 +28,13 @@ enum SignupResult: Int {
     case overlaped = 403
 }
 
-enum ImageResult{
+enum ImageResult {
     case ok([Image])
+    case fail(Error)
+}
+
+enum FetchImageResult {
+    case ok(UIImage)
     case fail(Error)
 }
 
@@ -71,8 +76,8 @@ struct ImageBoardAPI {
         guard
             let id = image["_id"] as? String,
             let createdAt = image["created_at"] as? Int,
-            let thumbImageURL = image["thumb_image_url"] as? String,
-            let imageURL = image["image_url"] as? String,
+            let thumbImageString = image["thumb_image_url"] as? String,
+            let imageString = image["image_url"] as? String,
             let authorNickName = image["author_nickname"] as? String,
             let author = image["author"] as? String,
             let imageDesc = image["image_desc"] as? String,
@@ -80,7 +85,25 @@ struct ImageBoardAPI {
                 return nil
         }
         
-        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle)
+        let thumbImageURL: URL! = URL(string: self.baseURLString + thumbImageString)
+        let imageURL: URL! = URL(string: self.baseURLString + imageString)
+        
+        var thumbImage: UIImage!
+        let imageRequest = URLRequest(url: thumbImageURL)
+        let imageSession = URLSession.shared
+        
+        let task = imageSession.dataTask(with: imageRequest) {
+            (data, response, error) -> Void in
+            
+            guard let imageData = data else{
+                return
+            }
+            thumbImage = UIImage(data: imageData)
+            
+        }
+        task.resume()
+        
+        return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle, thumbImage: thumbImage)
     }
 }
 
