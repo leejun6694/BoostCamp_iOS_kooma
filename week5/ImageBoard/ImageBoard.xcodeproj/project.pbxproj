@@ -17,6 +17,7 @@
 		729B65E61F2DB40B00E04089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729B65E51F2DB40B00E04089 /* Assets.xcassets */; };
 		729B65E91F2DB40B00E04089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729B65E71F2DB40B00E04089 /* LaunchScreen.storyboard */; };
 		729B65F11F2DB41F00E04089 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B65F01F2DB41F00E04089 /* LoginViewController.swift */; };
+		72BD613B1F30D8FB0052B628 /* AddImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BD613A1F30D8FB0052B628 /* AddImageController.swift */; };
 		72CF00011F30576400FB1CF7 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF00001F30576400FB1CF7 /* ImageItem.swift */; };
 		72CF00031F30760300FB1CF7 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CF00021F30760300FB1CF7 /* DetailTableViewController.swift */; };
 		72CFFFF91F30344F00FB1CF7 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CFFFF81F30344F00FB1CF7 /* ImageStore.swift */; };
@@ -41,6 +42,7 @@
 		729B65E81F2DB40B00E04089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		729B65EA1F2DB40B00E04089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		729B65F01F2DB41F00E04089 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72BD613A1F30D8FB0052B628 /* AddImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddImageController.swift; sourceTree = "<group>"; };
 		72CF00001F30576400FB1CF7 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		72CF00021F30760300FB1CF7 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		72CFFFF81F30344F00FB1CF7 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				72FB1EFA1F2E4BB10033D410 /* ImageTableViewCell.swift */,
 				72FB1EF81F2E415C0033D410 /* ImageTableViewController.swift */,
 				72CF00021F30760300FB1CF7 /* DetailTableViewController.swift */,
+				72BD613A1F30D8FB0052B628 /* AddImageController.swift */,
 				72CFFFFE1F3054F400FB1CF7 /* CollectionViewCell.swift */,
 				72CFFFFC1F30517100FB1CF7 /* CollectionViewController.swift */,
 				725638F11F2F939200CCE8E6 /* NavigationController.swift */,
@@ -185,6 +188,7 @@
 				72FB1EFD1F2EE7910033D410 /* SignupViewController.swift in Sources */,
 				72CF00031F30760300FB1CF7 /* DetailTableViewController.swift in Sources */,
 				729B65F11F2DB41F00E04089 /* LoginViewController.swift in Sources */,
+				72BD613B1F30D8FB0052B628 /* AddImageController.swift in Sources */,
 				72566EC71F2DC699005CFF6A /* ImageBoardAPI.swift in Sources */,
 				725638EA1F2F5A8500CCE8E6 /* Authority.swift in Sources */,
 				72FB1EFB1F2E4BB10033D410 /* ImageTableViewCell.swift in Sources */,

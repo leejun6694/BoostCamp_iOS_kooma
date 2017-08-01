@@ -96,6 +96,24 @@
             </objects>
             <point key="canvasLocation" x="3044" y="1173.4632683658172"/>
         </scene>
+        <!--Add Image Controller-->
+        <scene sceneID="FB3-Lb-04e">
+            <objects>
+                <viewController id="3SH-C4-Hqh" customClass="AddImageController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hfz-ke-5Vj"/>
+                        <viewControllerLayoutGuide type="bottom" id="DYC-um-ePS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OXa-9R-DHg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tni-Mg-cxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4818" y="-466"/>
+        </scene>
         <!--Image Table View Controller-->
         <scene sceneID="Yhe-Cv-R7h">
             <objects>
@@ -112,6 +130,7 @@
                     <navigationItem key="navigationItem" id="6dK-PX-ztf"/>
                     <connections>
                         <segue destination="feb-Cl-BoI" kind="show" identifier="segueTableToDetail" id="yfQ-JX-NJ1"/>
+                        <segue destination="3SH-C4-Hqh" kind="show" identifier="segueTableToAdd" action="showDetailViewController:sender:" id="o5r-Dt-Qah"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NYQ-iG-nnG" userLabel="First Responder" sceneMemberID="firstResponder"/>

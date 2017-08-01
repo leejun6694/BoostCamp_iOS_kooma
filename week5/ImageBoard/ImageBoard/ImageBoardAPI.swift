@@ -12,6 +12,7 @@ enum Method: String {
     case login = "login"
     case signup = "user"
     case image = ""
+    case create = "image"
 }
 
 enum ImageBoardError: Error {
@@ -35,6 +36,11 @@ enum ImageResult {
 
 enum FetchImageResult {
     case ok(UIImage)
+    case fail(Error)
+}
+
+enum CreateResult {
+    case sucess
     case fail(Error)
 }
 
@@ -88,5 +94,6 @@ struct ImageBoardAPI {
         }
         
         return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle)
+    }
 }
 

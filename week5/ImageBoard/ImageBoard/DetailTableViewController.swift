@@ -105,6 +105,7 @@ class DetailTableViewController: UIViewController {
 // MARK: Layout Constraints
 
 extension DetailTableViewController {
+    
     fileprivate func imageViewConstraints() -> [NSLayoutConstraint] {
         let topConstraint = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         let leadingConstraint = NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0)

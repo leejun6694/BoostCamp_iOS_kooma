@@ -81,4 +81,14 @@ class ImageStore: NSObject {
         }
         task.resume()
     }
+    
+//    func createImage(title: String, desc:String?, imageData: Data, completion: @escaping (CreateResult) -> Void) {
+//        
+//        
+//        let url = ImageBoardAPI.methodURL(method: .create)
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        let boundary = "Boundary-\(UUID().uuidString)"
+//        
+//    }
 }

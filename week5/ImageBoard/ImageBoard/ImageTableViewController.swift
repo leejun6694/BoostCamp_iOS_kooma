@@ -24,17 +24,54 @@ class ImageTableViewController: UIViewController {
         return tableView
     }()
     
+    fileprivate lazy var addButton: UIBarButtonItem =  {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(clickAddButton(_:)))
+        
+        return addButton
+    }()
+    
+    // MARK: Actions
+    
+    @objc fileprivate func clickAddButton(_ sender: AnyObject) {
+        performSegue(withIdentifier: "segueTableToAdd", sender: self)
+    }
+    
+    func refreshControl(_ refreshControl: UIRefreshControl) {
+        store.imageLoad() {
+            (imageResult) -> Void in
+            
+            switch imageResult {
+            case let .ok(image):
+                self.images = image
+            case let .fail(error):
+                print(error)
+                self.images.removeAll()
+            }
+            self.tableView.reloadData()
+            refreshControl.endRefreshing()
+        }
+    }
+    
     // MARK: Override
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        navigationItem.leftBarButtonItem = addButton
         
         self.view.addSubview(tableView)
         self.view.addConstraints(tableViewConstraints())
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.tableView.refreshControl = UIRefreshControl()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControl(_:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = refreshControl
+        } else {
+            self.tableView.backgroundView = refreshControl
+        }
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if appDelegate.session != nil {
@@ -121,6 +158,7 @@ extension ImageTableViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: Layout Constraints
 
 extension ImageTableViewController {
+    
     fileprivate func tableViewConstraints() -> [NSLayoutConstraint] {
         let topConstraint = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0)
         let leadingConstraint = NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 0.0)
