@@ -88,6 +88,5 @@ struct ImageBoardAPI {
         }
         
         return Image(id: id, createdAt: createdAt, thumbImageURL: thumbImageURL, imageURL: imageURL, authorNickName: authorNickName, author: author, imageDesc: imageDesc, imageTitle: imageTitle)
-    }
 }
 
