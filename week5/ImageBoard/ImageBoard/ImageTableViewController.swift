@@ -12,6 +12,9 @@ class ImageTableViewController: UIViewController {
     
     // MARK: Properties
     
+    var images = [Image]()
+    var store: ImageStore = ImageStore()
+    
     let imagetableCell: ImageTableViewCell = ImageTableViewCell()
     
     fileprivate lazy var tableView: UITableView = {
@@ -23,11 +26,30 @@ class ImageTableViewController: UIViewController {
     
     // MARK: Override
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.view.addSubview(tableView)
         self.view.addConstraints(tableViewConstraints())
+//        self.tableView.delegate = self
+//        self.tableView.dataSource = self
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        if appDelegate.session != nil {
+            store.imageLoad() {
+                (imageResult) -> Void in
+                
+                switch imageResult {
+                case let .ok(image):
+                    print(image.count)
+                    self.images = image
+                case let .fail(error):
+                    print(error)
+                    self.images.removeAll()
+                }
+                self.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -36,13 +58,23 @@ class ImageTableViewController: UIViewController {
 extension ImageTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.images.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "ImageTableViewCell")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
+        let imageItem = self.images[indexPath.row]
+        
+        cell.createTitleLabel()
+        cell.createCreatedLabel()
+        cell.createNickNameLabel()
+        cell.createCellImageView()
+        
+        cell.titleLabel.text = imageItem.imageTitle
+        cell.nickNameLabel.text = imageItem.authorNickName
+        cell.createdLabel.text = String(imageItem.createdAt)
         
         return cell
     }

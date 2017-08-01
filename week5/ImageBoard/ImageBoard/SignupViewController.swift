@@ -13,6 +13,7 @@ class SignupViewController: UIViewController {
     // MARK: Properties
     
     let authority = Authority()
+    var signupFlag: Bool!
     
     fileprivate lazy var emailField: UITextField = {
         let emailField = UITextField()
@@ -108,11 +109,15 @@ class SignupViewController: UIViewController {
     }
     
     private func successSignup() {
-        
+        signupFlag = true
+        dismiss(animated: true, completion: nil)
     }
     
     private func failSignup() {
-        
+        let alert = UIAlertController(title: "알림", message: "Code : 403", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     private func wrongPassword() {

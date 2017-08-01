@@ -8,16 +8,6 @@
 
 import UIKit
 
-enum LoginResult: Int {
-    case ok = 200
-    case unauthorized = 401
-}
-
-enum SignupResult: Int {
-    case ok = 201
-    case overlaped = 403
-}
-
 class Authority {
     
     private let session: URLSession = {

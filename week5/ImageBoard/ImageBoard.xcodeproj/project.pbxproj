@@ -17,6 +17,9 @@
 		729B65E61F2DB40B00E04089 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729B65E51F2DB40B00E04089 /* Assets.xcassets */; };
 		729B65E91F2DB40B00E04089 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729B65E71F2DB40B00E04089 /* LaunchScreen.storyboard */; };
 		729B65F11F2DB41F00E04089 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729B65F01F2DB41F00E04089 /* LoginViewController.swift */; };
+		72CFFFF91F30344F00FB1CF7 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CFFFF81F30344F00FB1CF7 /* ImageStore.swift */; };
+		72CFFFFB1F3036D200FB1CF7 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CFFFFA1F3036D200FB1CF7 /* Image.swift */; };
+		72CFFFFD1F30517100FB1CF7 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72CFFFFC1F30517100FB1CF7 /* CollectionViewController.swift */; };
 		72FB1EF91F2E415C0033D410 /* ImageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB1EF81F2E415C0033D410 /* ImageTableViewController.swift */; };
 		72FB1EFB1F2E4BB10033D410 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB1EFA1F2E4BB10033D410 /* ImageTableViewCell.swift */; };
 		72FB1EFD1F2EE7910033D410 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FB1EFC1F2EE7910033D410 /* SignupViewController.swift */; };
@@ -35,6 +38,9 @@
 		729B65E81F2DB40B00E04089 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		729B65EA1F2DB40B00E04089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		729B65F01F2DB41F00E04089 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		72CFFFF81F30344F00FB1CF7 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		72CFFFFA1F3036D200FB1CF7 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		72CFFFFC1F30517100FB1CF7 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		72FB1EF81F2E415C0033D410 /* ImageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewController.swift; sourceTree = "<group>"; };
 		72FB1EFA1F2E4BB10033D410 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		72FB1EFC1F2EE7910033D410 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -74,10 +80,13 @@
 				72566EC61F2DC699005CFF6A /* ImageBoardAPI.swift */,
 				725638E71F2F57DC00CCE8E6 /* User.swift */,
 				725638E91F2F5A8500CCE8E6 /* Authority.swift */,
+				72CFFFFA1F3036D200FB1CF7 /* Image.swift */,
+				72CFFFF81F30344F00FB1CF7 /* ImageStore.swift */,
 				729B65F01F2DB41F00E04089 /* LoginViewController.swift */,
 				72FB1EFC1F2EE7910033D410 /* SignupViewController.swift */,
 				72FB1EFA1F2E4BB10033D410 /* ImageTableViewCell.swift */,
 				72FB1EF81F2E415C0033D410 /* ImageTableViewController.swift */,
+				72CFFFFC1F30517100FB1CF7 /* CollectionViewController.swift */,
 				725638EF1F2F933800CCE8E6 /* TabbarController.swift */,
 				725638F11F2F939200CCE8E6 /* NavigationController.swift */,
 				729B65E21F2DB40B00E04089 /* Main.storyboard */,
@@ -161,6 +170,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72CFFFFD1F30517100FB1CF7 /* CollectionViewController.swift in Sources */,
+				72CFFFF91F30344F00FB1CF7 /* ImageStore.swift in Sources */,
+				72CFFFFB1F3036D200FB1CF7 /* Image.swift in Sources */,
 				72FB1EFD1F2EE7910033D410 /* SignupViewController.swift in Sources */,
 				729B65F11F2DB41F00E04089 /* LoginViewController.swift in Sources */,
 				72566EC71F2DC699005CFF6A /* ImageBoardAPI.swift in Sources */,

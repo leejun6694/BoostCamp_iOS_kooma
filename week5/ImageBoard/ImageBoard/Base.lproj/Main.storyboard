@@ -34,7 +34,7 @@
         <!--Collection-->
         <scene sceneID="xBy-75-uc7">
             <objects>
-                <viewController id="1EV-mw-rL2" sceneMemberID="viewController">
+                <viewController id="1EV-mw-rL2" customClass="CollectionViewController" customModule="ImageBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MTj-G5-60D"/>
                         <viewControllerLayoutGuide type="bottom" id="2ml-of-vGK"/>
@@ -48,7 +48,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dG6-bs-TJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3102" y="1281"/>
+            <point key="canvasLocation" x="3044" y="1174"/>
         </scene>
         <!--Table-->
         <scene sceneID="Yhe-Cv-R7h">

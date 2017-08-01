@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     // MARK: Properties
     
     let authority = Authority()
+    var signupFlag: Bool = false
     
     fileprivate lazy var emailField: UITextField = {
         let emailField = UITextField()
@@ -20,6 +21,8 @@ class LoginViewController: UIViewController {
         emailField.borderStyle = .roundedRect
         emailField.placeholder = "E-mail"
         emailField.translatesAutoresizingMaskIntoConstraints = false
+        
+        emailField.text = "test@test.com" // tmp
         
         return emailField
     }()
@@ -31,6 +34,8 @@ class LoginViewController: UIViewController {
         pwField.placeholder = "Password"
         pwField.isSecureTextEntry = true
         pwField.translatesAutoresizingMaskIntoConstraints = false
+        
+        pwField.text = "test" // tmp
         
         return pwField
     }()
@@ -93,6 +98,17 @@ class LoginViewController: UIViewController {
     
     // MARK: Override
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if signupFlag == true {
+            let alert = UIAlertController(title: "회원가입완료", message: "", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,6 +123,14 @@ class LoginViewController: UIViewController {
         self.view.addConstraints(pwFieldConstraints())
         self.view.addConstraints(loginButtonConstraints())
         self.view.addConstraints(signupButtonConstraints())
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueLoginToSignup" {
+            self.signupFlag = false
+            let destinationController = segue.destination as! SignupViewController
+            destinationController.signupFlag = self.signupFlag
+        }
     }
 }
 
