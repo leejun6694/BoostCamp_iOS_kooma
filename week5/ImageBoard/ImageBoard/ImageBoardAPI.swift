@@ -92,6 +92,8 @@ struct ImageBoardAPI {
         let imageRequest = URLRequest(url: thumbImageURL)
         let imageSession = URLSession.shared
         
+        // 비동기 작업이므로 아래 return 구문이 실행된 이후에 완료될 수 있음을 인지해야 합니다.
+        // 아래 return 구문에서 계속 thumbImage가 nil이라서 크래시가 나지요
         let task = imageSession.dataTask(with: imageRequest) {
             (data, response, error) -> Void in
             

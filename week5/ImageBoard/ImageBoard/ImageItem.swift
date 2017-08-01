@@ -19,6 +19,7 @@ class ImageItem: NSObject {
         return documentDirectory.appendingPathComponent(key)
     }
     
+    // 만약 동일한 주소의 이미지가 변경되었다면 어떻게 해야할까요?
     func imageForKey(key: String) -> UIImage? {
         if let existingImage = cache.object(forKey: key as NSString) {
             return existingImage
